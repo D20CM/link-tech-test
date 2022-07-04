@@ -1,0 +1,38 @@
+.loginContainer{
+    width: 60%;
+    margin: 3em auto;
+    padding: 3em 10em;
+    background-color: #efede7;
+    color: #001a3e;
+    border-radius: 8px;
+    height: 60vh;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content:left;
+}
+
+.loginContainer > h3{
+    font-size: 2em;
+}
+.loginContainer > input{
+   
+    height: 3em;
+    margin: 2em 0;
+    border-radius: 0.3em;
+    border: none;
+    padding: 0 1em;
+
+}
+
+.loginContainer > button {
+    margin: 2em 0;
+    padding: 0.5em 1em;
+    width: 10em;
+    align-self: flex-end;
+    background-color: #001a3e;
+    color:#efede7;
+    font-size: 1.3em;
+    border-radius: 0.2em;
+    text-transform: uppercase;
+}

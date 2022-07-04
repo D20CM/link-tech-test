@@ -1,0 +1,19 @@
+.statusBar{
+    width: 100%;
+    height: 3em;
+    background-color: #efede7;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 2em;
+}
+
+.statusBar ul {
+    display: flex;
+    justify-content: space-evenly;
+list-style: none;
+}
+
+.statusBar li {
+    margin: 0 1em;
+}
