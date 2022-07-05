@@ -1,0 +1,13 @@
+.dashboardContainer{
+    width: 60%;
+    margin: 3em auto;
+    padding: 3em 10em;
+    background-color: #efede7;
+    color: #001a3e;
+    border-radius: 8px;
+    height: 60vh;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content:left;
+}

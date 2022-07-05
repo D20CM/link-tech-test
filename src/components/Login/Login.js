@@ -1,10 +1,13 @@
-import { React, useState } from "react";
+import { React } from "react";
 import css from "./login.module.css";
 
-function Login() {
-  const { username, setUsername } = useState("Username");
-  const { password, setPassword } = useState("Password");
-
+function Login({
+  handleUsernameInput,
+  handlePasswordInput,
+  handleLoginSubmit,
+  username,
+  password,
+}) {
   return (
     <div className={css.loginContainer}>
       <h3>Please log in</h3>
@@ -12,15 +15,20 @@ function Login() {
         type="text"
         className={css.usernameInput}
         placeholder="Username"
-        value={username}
+        onChange={(e) => handleUsernameInput(e.target.value)}
       ></input>
       <input
         type="text"
         className={css.passwordInput}
         placeholder="Password"
-        value={password}
+        onChange={(e) => handlePasswordInput(e.target.value)}
       ></input>
-      <button className={css.loginButton}>Login</button>
+      <button
+        className={css.loginButton}
+        onClick={() => handleLoginSubmit(username, password)}
+      >
+        Login
+      </button>
     </div>
   );
 }
