@@ -44,18 +44,20 @@ function App() {
   }
 
   async function getUserProfile(jwt) {
-    const response = await fetch(
-      `https://interview.intrinsiccloud.net/profile`,
-      {
-        method: "GET",
-        headers: {
-          Authorization: "Bearer " + jwt,
-        },
-      }
-    );
-    const data = await response.json();
-    console.log(data);
-    return data;
+    if (jwt) {
+      const response = await fetch(
+        `https://interview.intrinsiccloud.net/profile`,
+        {
+          method: "GET",
+          headers: {
+            Authorization: "Bearer " + jwt,
+          },
+        }
+      );
+      const data = await response.json();
+      console.log(data);
+      return data;
+    }
   }
 
   return (
@@ -67,7 +69,7 @@ function App() {
         <Statusbar />
         <section className="mainContainer">
           {isLoggedIn ? (
-            <Dashboard user={user} />
+            <Dashboard user={user} jwt={jwt} />
           ) : (
             <>
               {" "}

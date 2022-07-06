@@ -1,13 +1,36 @@
 .dashboardContainer{
     width: 60%;
     margin: 3em auto;
-    padding: 3em 10em;
+    padding: 3em;
     background-color: #efede7;
     color: #001a3e;
     border-radius: 8px;
     height: 60vh;
     text-align: left;
-    display: flex;
-    flex-direction: column;
-    justify-content:left;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+}
+
+.profileImage{
+    border-radius: 50%;
+    width: 6em;
+    margin: 0 2em;
+}
+
+.changeProfileImageButton{
+    font-size: 0.5em;
+   
+    background-color: #001a3e;
+    color: white;
+    max-height: 5em;
+    border-radius: 4px;
+    max-width: 10em;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.photoArea{
+    position: relative;
+    height: 40%;
 }
