@@ -1,13 +1,21 @@
 import React from "react";
 import css from "./statusbar.module.css";
 
-function Statusbar() {
+function Statusbar({ imageUrl, user }) {
   return (
     <div className={css.statusBar}>
       <ul>
         <li>help</li>
-        <li>profile pic</li>
-        <li>username</li>
+        {imageUrl && (
+          <li>
+            <img
+              src={imageUrl}
+              alt="user profile pic"
+              className={css.profilePic}
+            ></img>
+          </li>
+        )}
+        {user && <li>{user.displayName}</li>}
       </ul>
     </div>
   );

@@ -11,6 +11,7 @@ function App() {
   const [jwt, setJwt] = useState(null);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [user, setUser] = useState({});
+  const [imageUrl, setImageUrl] = useState("");
 
   function handleUsernameInput(inputString) {
     setUsername(inputString);
@@ -66,10 +67,10 @@ function App() {
         <Sidebar />
       </div>
       <div className="pageRight">
-        <Statusbar />
+        <Statusbar imageUrl={imageUrl} user={user} />
         <section className="mainContainer">
           {isLoggedIn ? (
-            <Dashboard user={user} jwt={jwt} />
+            <Dashboard user={user} jwt={jwt} setImageUrl={setImageUrl} />
           ) : (
             <>
               {" "}

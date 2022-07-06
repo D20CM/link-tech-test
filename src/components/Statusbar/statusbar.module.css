@@ -17,3 +17,8 @@ list-style: none;
 .statusBar li {
     margin: 0 1em;
 }
+
+.profilePic{
+    width: 2em;
+    border-radius: 50%;
+}

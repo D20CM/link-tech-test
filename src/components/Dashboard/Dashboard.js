@@ -1,7 +1,7 @@
 import css from "./dashboard.module.css";
 import { React, useEffect, useState } from "react";
 
-function Dashboard({ user, jwt }) {
+function Dashboard({ user, jwt, setImageUrl }) {
   const [profileImageUrl, setProfileImageUrl] = useState(null);
   const [isImageEditDisplayed, setIsImageEditDisplayed] = useState(false);
   const [newProfileUrl, setNewProfileUrl] = useState("");
@@ -26,6 +26,7 @@ function Dashboard({ user, jwt }) {
         const data = response.url;
         console.log("This should be the image: ", data);
         setProfileImageUrl(data);
+        setImageUrl(data);
         return data;
       }
     }
