@@ -6,16 +6,31 @@
 }
 
 .contactsContainer{
-    width: 60%;
+    width: 80%;
     margin: 3em auto;
     padding: 3em;
     background-color: #efede7;
     color: #001a3e;
     border-radius: 8px;
+    text-align: center;
     
 
 }
 
+.tileGrid{
+    display: grid;
+
+   
+}
+
 .contactsContainer > h2{
     text-decoration: underline;
+    margin-bottom: 2em;
+}
+
+.contactsFooter{
+    text-align: right;
+    font-size: 3em;
+    font-weight: 800;
+
 }

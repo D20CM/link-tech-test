@@ -1,11 +1,11 @@
 .dashboardContainer{
-    width: 60%;
+    width: 80%;
     margin: 3em auto;
     padding: 3em;
     background-color: #efede7;
     color: #001a3e;
     border-radius: 8px;
-    height: 60vh;
+    min-height: 15em;
     text-align: left;
     display: grid;
     grid-template-columns: 1fr 4fr;
@@ -32,5 +32,6 @@
 
 .photoArea{
     position: relative;
-    height: 40%;
+    height: 6em
+    
 }

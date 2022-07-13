@@ -10,7 +10,9 @@ function ContactTile({ contact }) {
         <p className={css.company}>
           <em>{contact.company}</em>
         </p>
-        <p>{contact.primaryEmailAddress}</p>
+        <a href={`mailto:${contact.primaryEmailAddress}`}>
+          {contact.primaryEmailAddress}
+        </a>
         <p>
           +{contact.phoneNumbers[0].phoneNumberFormatted} (
           {contact.phoneNumbers[0].category} )

@@ -95,7 +95,6 @@ function App() {
           {jwt && <Contacts jwt={jwt} />}
         </section>
       </div>
-      <section></section>
     </div>
   );
 }

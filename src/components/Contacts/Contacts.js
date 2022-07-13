@@ -25,11 +25,16 @@ function Contacts({ jwt }) {
   return (
     <div className={css.contactsContainer}>
       <h2>Contacts</h2>
-      {contacts.length > 0 ? (
-        contacts.map((contact) => <ContactTile contact={contact} />)
-      ) : (
-        <div>No contacts to show</div>
-      )}
+      <div className={css.tileGrid}>
+        {contacts.length > 0 ? (
+          contacts.map((contact) => (
+            <ContactTile contact={contact} key={contact.id} />
+          ))
+        ) : (
+          <div>No contacts to show</div>
+        )}
+      </div>
+      <div className={css.contactsFooter}>+</div>
     </div>
   );
   //   return <div>something</div>;

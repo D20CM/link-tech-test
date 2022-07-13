@@ -5,11 +5,13 @@
     color:#001a3e;
     border-radius: 0.4em;
     text-align: left;
+    max-width: 500px;
+    min-width: 280px;
 
 }
 
 .contactName{
-    font-size: 2em;
+    font-size: 1.5em;
 }
 
 .company{
