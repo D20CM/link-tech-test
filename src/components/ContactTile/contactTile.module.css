@@ -1,0 +1,17 @@
+.contactTile{
+    border: 2px solid  #001a3e;;
+    padding: 1em;
+    margin: 1em;
+    color:#001a3e;
+    border-radius: 0.4em;
+    text-align: left;
+
+}
+
+.contactName{
+    font-size: 2em;
+}
+
+.company{
+   
+}

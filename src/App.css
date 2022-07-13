@@ -2,7 +2,7 @@
   text-align: center;
   background-image: url(../public/megayacht.jpg);
   background-size: cover;
-  max-height: 100vh;
+  min-height: 100vh;
   display: grid;
   grid-template-columns: 1.5fr 8.5fr;
 }

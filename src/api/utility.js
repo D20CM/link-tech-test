@@ -1,4 +1,6 @@
 export async function getCountries(jwt) {
+  console.log("calling utility/GET API");
+
   const response = await fetch(
     `https://interview.intrinsiccloud.net/utility/countries`,
     {

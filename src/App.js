@@ -2,8 +2,10 @@ import "./App.css";
 import Sidebar from "./components/Sidebar/Sidebar";
 import Statusbar from "./components/Statusbar/Statusbar";
 import Login from "./components/Login/Login";
+import Contacts from "./components/Contacts/Contacts";
 import { useState, useEffect } from "react";
 import Dashboard from "./components/Dashboard/Dashboard";
+import { getContacts } from "./api/contacts";
 
 function App() {
   const [username, setUsername] = useState("");
@@ -12,6 +14,12 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [user, setUser] = useState({});
   const [imageUrl, setImageUrl] = useState("");
+
+  function testing(string) {
+    console.log(string);
+  }
+
+  // testing(`Printing this: , ${jwt}`);
 
   function handleUsernameInput(inputString) {
     setUsername(inputString);
@@ -84,8 +92,10 @@ function App() {
               {jwt ? <p>{jwt}</p> : <p>no jwt yet</p>}{" "}
             </>
           )}
+          {jwt && <Contacts jwt={jwt} />}
         </section>
       </div>
+      <section></section>
     </div>
   );
 }

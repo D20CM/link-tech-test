@@ -1,5 +1,5 @@
 export async function handleLoginSubmit(username, password) {
-  console.log(username, password);
+  console.log("Calling auth API with: ", username, password);
   const response = await fetch(
     "https://interview.intrinsiccloud.net/auth/login",
     {

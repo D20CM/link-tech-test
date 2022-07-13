@@ -1,5 +1,6 @@
 export async function getUserProfile(jwt) {
   if (jwt) {
+    console.log("calling profile/GET API");
     const response = await fetch(
       `https://interview.intrinsiccloud.net/profile`,
       {
@@ -17,6 +18,7 @@ export async function getUserProfile(jwt) {
 
 export async function getUserProfileImage(jwt, id) {
   if (jwt) {
+    console.log("calling profil/profileImage/GET API");
     const response = await fetch(
       `https://interview.intrinsiccloud.net/profile/profileImage/${id}`,
       {

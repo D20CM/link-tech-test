@@ -1,0 +1,21 @@
+.contactName{
+    margin: auto;
+    font-size: 2em;
+    font-weight: 600;    
+
+}
+
+.contactsContainer{
+    width: 60%;
+    margin: 3em auto;
+    padding: 3em;
+    background-color: #efede7;
+    color: #001a3e;
+    border-radius: 8px;
+    
+
+}
+
+.contactsContainer > h2{
+    text-decoration: underline;
+}
