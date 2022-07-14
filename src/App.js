@@ -16,12 +16,9 @@ function App() {
   const [user, setUser] = useState({});
   const [imageUrl, setImageUrl] = useState("");
   const [showContacts, setShowContacts] = useState(false);
-
-  function testing(string) {
-    console.log(string);
-  }
-
-  // testing(`Printing this: , ${jwt}`);
+  const [showAddContact, setShowAddContact] = useState(false);
+  //hasContactsChanged is just a toggle to trigger refresh of contacts and call API again - true or false doesn't matter
+  const [hasContactsChanged, setHasContactsChanged] = useState(false);
 
   function handleUsernameInput(inputString) {
     setUsername(inputString);
@@ -49,7 +46,6 @@ function App() {
     console.log(data);
     setJwt(data.token);
     const userData = await getUserProfile(data.token);
-    console.log("got here");
     setIsLoggedIn(true);
     setUser(userData);
   }
@@ -86,6 +82,7 @@ function App() {
               setImageUrl={setImageUrl}
               showContacts={showContacts}
               setShowContacts={setShowContacts}
+              setShowAddContact={setShowAddContact}
             />
           ) : (
             <>
@@ -100,8 +97,22 @@ function App() {
               {jwt ? <p>{jwt}</p> : <p>no jwt yet</p>}{" "}
             </>
           )}
-          {jwt && showContacts && <Contacts jwt={jwt} />}
-          <AddContact jwt={jwt} />
+          {jwt && showContacts && (
+            <Contacts
+              jwt={jwt}
+              showAddContact={showAddContact}
+              setShowAddContact={setShowAddContact}
+              hasContactsChanged={hasContactsChanged}
+              setHasContactsChanged={setHasContactsChanged}
+            />
+          )}
+          {jwt && showAddContact && (
+            <AddContact
+              jwt={jwt}
+              hasContactsChanged={hasContactsChanged}
+              setHasContactsChanged={setHasContactsChanged}
+            />
+          )}
         </section>
       </div>
     </div>

@@ -34,3 +34,14 @@
     font-weight: 800;
 
 }
+
+.addContactButton{
+    background-color: #001a3e;
+    color: white;
+    padding: 0.5em 1em;
+    border-radius: 0.2em;
+}
+
+.contactButtonIcon{
+    margin-right: 1em;
+}

@@ -2,7 +2,7 @@ import css from "./addContact.module.css";
 import { React, useState } from "react";
 import { addContact } from "../../api/contacts";
 
-function AddContact({ jwt }) {
+function AddContact({ jwt, hasContactsChanged, setHasContactsChanged }) {
   const [contactName, setContactName] = useState("");
   const [company, setCompany] = useState("");
   const [phoneNumbers, setPhoneNumbers] = useState([]);
@@ -36,6 +36,7 @@ function AddContact({ jwt }) {
     setContactName("");
     setCompany("");
     setPrimaryEmailAddress("");
+    setHasContactsChanged(!hasContactsChanged);
   }
 
   return (
@@ -57,16 +58,16 @@ function AddContact({ jwt }) {
           value={company}
           onChange={(e) => handleInput(setCompany, e.target.value)}
         ></input>
-      </form>
 
-      <input
-        type="text"
-        className={css.emailInput}
-        placeholder="Primary Email Addtess"
-        value={primaryEmailAddress}
-        onChange={(e) => handleInput(setPrimaryEmailAddress, e.target.value)}
-      ></input>
-      <input type="submit" onClick={handleSubmit}></input>
+        <input
+          type="text"
+          className={css.emailInput}
+          placeholder="Primary Email Address"
+          value={primaryEmailAddress}
+          onChange={(e) => handleInput(setPrimaryEmailAddress, e.target.value)}
+        ></input>
+        <input type="submit" onClick={handleSubmit}></input>
+      </form>
     </section>
   );
 }

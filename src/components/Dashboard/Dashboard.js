@@ -2,7 +2,14 @@ import css from "./dashboard.module.css";
 import { React, useEffect, useState } from "react";
 import { FiEdit } from "react-icons/fi";
 
-function Dashboard({ user, jwt, setImageUrl, showContacts, setShowContacts }) {
+function Dashboard({
+  user,
+  jwt,
+  setImageUrl,
+  showContacts,
+  setShowContacts,
+  setShowAddContact,
+}) {
   const [profileImageUrl, setProfileImageUrl] = useState(null);
   const [isImageEditDisplayed, setIsImageEditDisplayed] = useState(false);
   const [newProfileUrl, setNewProfileUrl] = useState("");
@@ -37,6 +44,7 @@ function Dashboard({ user, jwt, setImageUrl, showContacts, setShowContacts }) {
 
   function handleSubmitImageUrl() {
     console.log("New profile URL will be: ", newProfileUrl);
+    setNewProfileUrl("");
     //send post request to profile/profileImage here
     //will need to construct request and file upload with fs
   }
@@ -68,6 +76,7 @@ function Dashboard({ user, jwt, setImageUrl, showContacts, setShowContacts }) {
               <input
                 type="text"
                 placeholder="enter new image url"
+                value={newProfileUrl}
                 onChange={(e) => handleChangeUrl(e.target.value)}
               ></input>
               <button onClick={() => handleSubmitImageUrl()}>Submit</button>
@@ -79,7 +88,10 @@ function Dashboard({ user, jwt, setImageUrl, showContacts, setShowContacts }) {
         <h2>{user.displayName}</h2>
         <p>{user.emailAddress}</p>
         <button
-          onClick={() => setShowContacts(!showContacts)}
+          onClick={() => {
+            setShowContacts(!showContacts);
+            setShowAddContact(false);
+          }}
           className={css.contactsButton}
         >
           Show/Hide Contacts
