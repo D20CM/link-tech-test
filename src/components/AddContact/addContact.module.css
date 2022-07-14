@@ -15,9 +15,32 @@
    grid-template-columns: 1fr 1fr;
 }
 
-.addContactArea > form > input{
+.addContactArea > form > input, .categoryInput{
         max-width: 300px;
+        height: 3.5em;
         margin: 1em;
         padding: 1em;
         border-radius: 0.4em;
+}
+
+.phoneInputArea{
+        max-width: 300px;
+        margin: 0;
+}
+
+.formSubmit{
+        background-color: #001a3e;
+        color: white;
+        padding: 0em 1em;
+        border-radius: 0.2em;
+        width: 10em;
+        
+      
+        
+
+}
+
+.formSubmit:hover{
+   text-decoration: underline;
+   
 }

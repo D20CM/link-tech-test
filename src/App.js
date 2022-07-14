@@ -3,9 +3,8 @@ import Sidebar from "./components/Sidebar/Sidebar";
 import Statusbar from "./components/Statusbar/Statusbar";
 import Login from "./components/Login/Login";
 import Contacts from "./components/Contacts/Contacts";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Dashboard from "./components/Dashboard/Dashboard";
-import { getContacts } from "./api/contacts";
 import AddContact from "./components/AddContact/AddContact";
 
 function App() {

@@ -42,6 +42,11 @@
     border-radius: 0.2em;
 }
 
+.addContactButton:hover{
+    text-decoration: underline;
+    
+ }
+
 .contactButtonIcon{
     margin-right: 1em;
 }

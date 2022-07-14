@@ -6,6 +6,12 @@ function AddContact({ jwt, hasContactsChanged, setHasContactsChanged }) {
   const [contactName, setContactName] = useState("");
   const [company, setCompany] = useState("");
   const [phoneNumbers, setPhoneNumbers] = useState([]);
+  const [areaCode, setAreaCode] = useState("");
+  const [number, setNumber] = useState("");
+  const [category, setCategory] = useState("");
+  const [countryCode, setCountryCode] = useState("");
+  const [extension, setExtension] = useState("");
+  const [id, setId] = useState("");
   const [primaryEmailAddress, setPrimaryEmailAddress] = useState("");
 
   function handleInput(callback, e) {
@@ -19,11 +25,11 @@ function AddContact({ jwt, hasContactsChanged, setHasContactsChanged }) {
       company: company,
       phoneNumbers: [
         {
-          areaCode: "0151",
-          category: "HOME",
-          countryCode: "44",
-          extension: "",
-          id: "someprimaryid",
+          areaCode: areaCode,
+          category: category,
+          countryCode: countryCode,
+          extension: extension,
+          id: id,
           number: "987654",
         },
       ],
@@ -58,15 +64,64 @@ function AddContact({ jwt, hasContactsChanged, setHasContactsChanged }) {
           value={company}
           onChange={(e) => handleInput(setCompany, e.target.value)}
         ></input>
-
+        <div className={css.phoneInputArea}>
+          <input
+            type="text"
+            className={css.areaCodeInput}
+            placeholder="Area Code"
+            value={areaCode}
+            onChange={(e) => handleInput(setAreaCode, e.target.value)}
+          ></input>
+          <input
+            type="text"
+            className={css.numberInput}
+            placeholder="Number"
+            value={number}
+            onChange={(e) => handleInput(setNumber, e.target.value)}
+          ></input>
+          <select
+            name="categories"
+            className={css.categoryInput}
+            onChange={(e) => handleInput(setCategory, e.target.value)}
+          >
+            <option value="HOME">HOME</option>
+            <option value="MOBILE">MOBILE</option>
+            <option value="WORK">WORK</option>
+          </select>
+          <input
+            type="text"
+            className={css.countryCodeInput}
+            placeholder="Country Code"
+            value={countryCode}
+            onChange={(e) => handleInput(setCountryCode, e.target.value)}
+          ></input>
+          <input
+            type="text"
+            className={css.extensionInput}
+            placeholder="Extension"
+            value={extension}
+            onChange={(e) => handleInput(setExtension, e.target.value)}
+          ></input>
+          <input
+            type="text"
+            className={css.idInput}
+            placeholder="ID"
+            value={id}
+            onChange={(e) => handleInput(setId, e.target.value)}
+          ></input>
+        </div>
         <input
-          type="text"
+          type="email"
           className={css.emailInput}
-          placeholder="Primary Email Address"
+          placeholder="primaryEmailAddress"
           value={primaryEmailAddress}
           onChange={(e) => handleInput(setPrimaryEmailAddress, e.target.value)}
         ></input>
-        <input type="submit" onClick={handleSubmit}></input>
+        <input
+          type="submit"
+          onClick={handleSubmit}
+          className={css.formSubmit}
+        ></input>
       </form>
     </section>
   );
