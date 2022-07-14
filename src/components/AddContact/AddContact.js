@@ -32,6 +32,10 @@ function AddContact({ jwt }) {
     e.preventDefault();
     console.log(JSON.stringify(newContact));
     addContact(jwt, newContact);
+    //clear form inputs
+    setContactName("");
+    setCompany("");
+    setPrimaryEmailAddress("");
   }
 
   return (
@@ -42,6 +46,7 @@ function AddContact({ jwt }) {
           type="text"
           className={css.contactNameInput}
           placeholder="Contact Name"
+          value={contactName}
           onChange={(e) => handleInput(setContactName, e.target.value)}
         ></input>
 
@@ -49,6 +54,7 @@ function AddContact({ jwt }) {
           type="text"
           className={css.companyInput}
           placeholder="Company"
+          value={company}
           onChange={(e) => handleInput(setCompany, e.target.value)}
         ></input>
       </form>
@@ -57,6 +63,7 @@ function AddContact({ jwt }) {
         type="text"
         className={css.emailInput}
         placeholder="Primary Email Addtess"
+        value={primaryEmailAddress}
         onChange={(e) => handleInput(setPrimaryEmailAddress, e.target.value)}
       ></input>
       <input type="submit" onClick={handleSubmit}></input>

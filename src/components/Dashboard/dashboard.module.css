@@ -32,6 +32,21 @@
 
 .photoArea{
     position: relative;
-    height: 6em
+    height: 6em;
+    margin: 2em;
     
+}
+
+.contactsButton{
+    margin: 1em;
+    border-radius: 4px;
+    background-color: #001a3e;
+    color: white;
+
+
+}
+
+.editImageIcon{
+    font-size: 2em;
+    margin: 0 0.2em;
 }

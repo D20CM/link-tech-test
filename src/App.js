@@ -15,6 +15,7 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [user, setUser] = useState({});
   const [imageUrl, setImageUrl] = useState("");
+  const [showContacts, setShowContacts] = useState(false);
 
   function testing(string) {
     console.log(string);
@@ -79,7 +80,13 @@ function App() {
         <Statusbar imageUrl={imageUrl} user={user} />
         <section className="mainContainer">
           {isLoggedIn ? (
-            <Dashboard user={user} jwt={jwt} setImageUrl={setImageUrl} />
+            <Dashboard
+              user={user}
+              jwt={jwt}
+              setImageUrl={setImageUrl}
+              showContacts={showContacts}
+              setShowContacts={setShowContacts}
+            />
           ) : (
             <>
               {" "}
@@ -93,7 +100,7 @@ function App() {
               {jwt ? <p>{jwt}</p> : <p>no jwt yet</p>}{" "}
             </>
           )}
-          {jwt && <Contacts jwt={jwt} />}
+          {jwt && showContacts && <Contacts jwt={jwt} />}
           <AddContact jwt={jwt} />
         </section>
       </div>

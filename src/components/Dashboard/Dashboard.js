@@ -1,7 +1,8 @@
 import css from "./dashboard.module.css";
 import { React, useEffect, useState } from "react";
+import { FiEdit } from "react-icons/fi";
 
-function Dashboard({ user, jwt, setImageUrl }) {
+function Dashboard({ user, jwt, setImageUrl, showContacts, setShowContacts }) {
   const [profileImageUrl, setProfileImageUrl] = useState(null);
   const [isImageEditDisplayed, setIsImageEditDisplayed] = useState(false);
   const [newProfileUrl, setNewProfileUrl] = useState("");
@@ -59,7 +60,7 @@ function Dashboard({ user, jwt, setImageUrl }) {
             className={css.changeProfileImageButton}
             onClick={() => handleClick()}
           >
-            Change profile image
+            <FiEdit className={css.editImageIcon} />
           </button>
 
           {isImageEditDisplayed && (
@@ -77,6 +78,12 @@ function Dashboard({ user, jwt, setImageUrl }) {
       <div>
         <h2>{user.displayName}</h2>
         <p>{user.emailAddress}</p>
+        <button
+          onClick={() => setShowContacts(!showContacts)}
+          className={css.contactsButton}
+        >
+          Show/Hide Contacts
+        </button>
       </div>
     </div>
   );
