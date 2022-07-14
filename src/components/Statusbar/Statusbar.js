@@ -4,7 +4,8 @@ import css from "./statusbar.module.css";
 function Statusbar({ imageUrl, user }) {
   return (
     <div className={css.statusBar}>
-      <ul>
+      <h1>Link Contacts System</h1>
+      <ul className={css.statusBarMenu}>
         <li>help</li>
         {imageUrl && (
           <li>

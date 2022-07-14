@@ -1,5 +1,5 @@
-.contactTile{
-    border: 2px solid  #001a3e;;
+.contactTile, .contactTileEdit{
+    
     padding: 1em;
     margin: 1em;
     color:#001a3e;
@@ -8,6 +8,14 @@
     max-width: 500px;
     min-width: 280px;
 
+}
+
+.contactTile{
+    border: 2px solid  #001a3e;
+}
+
+.contactTileEdit{
+    border: 2px solid  #c20303;
 }
 
 .contactName{

@@ -1,11 +1,17 @@
 .statusBar{
     width: 100%;
-    height: 3em;
+    min-height: 3em;
     background-color: #efede7;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2em;
+}
+
+.statusBarMenu{
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    padding: 2em;
 }
 
 .statusBar ul {

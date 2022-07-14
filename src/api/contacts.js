@@ -58,3 +58,24 @@ export async function deleteContact(jwt, id) {
     console.log("No jwt, I guess!");
   }
 }
+
+export async function updateContact(jwt, id, newData) {
+  if (jwt && id) {
+    console.log("calling contacts/PUT API");
+    const response = await fetch(
+      `https://interview.intrinsiccloud.net/contacts/${id}`,
+      {
+        method: "PUT",
+        headers: {
+          Authorization: "Bearer " + jwt,
+        },
+        body: JSON.stringify(newData),
+      }
+    );
+    const data = await response.json();
+    console.log(data);
+    return data;
+  } else {
+    console.log("No jwt, I guess!");
+  }
+}
