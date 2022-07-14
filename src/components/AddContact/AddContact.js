@@ -2,7 +2,7 @@ import css from "./addContact.module.css";
 import { React, useState } from "react";
 import { addContact } from "../../api/contacts";
 
-function AddContact(jwt) {
+function AddContact({ jwt }) {
   const [contactName, setContactName] = useState("");
   const [company, setCompany] = useState("");
   const [phoneNumbers, setPhoneNumbers] = useState([]);
