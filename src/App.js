@@ -6,6 +6,7 @@ import Contacts from "./components/Contacts/Contacts";
 import { useState, useEffect } from "react";
 import Dashboard from "./components/Dashboard/Dashboard";
 import { getContacts } from "./api/contacts";
+import AddContact from "./components/AddContact/AddContact";
 
 function App() {
   const [username, setUsername] = useState("");
@@ -93,6 +94,7 @@ function App() {
             </>
           )}
           {jwt && <Contacts jwt={jwt} />}
+          <AddContact jwt={jwt} />
         </section>
       </div>
     </div>

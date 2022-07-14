@@ -18,15 +18,15 @@ export async function getContacts(jwt) {
 
 export async function addContact(jwt, newContact) {
   if (jwt) {
-    console.log("calling contacts/POST API", jwt, newContact.contactName);
+    console.log("calling contacts/POST API", jwt.jwt, newContact.contactName);
     const response = await fetch(
       `https://interview.intrinsiccloud.net/contacts`,
       {
         method: "POST",
         headers: {
+          Accept: "application/json",
           "Content-Type": "application/json",
-
-          Authorization: "Bearer " + jwt,
+          Authorization: "Bearer " + jwt.jwt,
         },
         body: JSON.stringify(newContact),
       }
@@ -34,5 +34,7 @@ export async function addContact(jwt, newContact) {
     const data = await response.json();
     console.log(data);
     return data;
+  } else {
+    console.log("No jwt, I guess!");
   }
 }
