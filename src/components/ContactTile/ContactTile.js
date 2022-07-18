@@ -1,6 +1,6 @@
 import css from "./contactTile.module.css";
 import { React, useState } from "react";
-import { deleteContact } from "../../api/contacts";
+import { deleteContact, updateContact } from "../../api/contacts";
 
 function ContactTile({
   contact,
@@ -37,10 +37,27 @@ function ContactTile({
   }
 
   async function handleSave() {
+    const updatedUserInfo = {
+      company: "Tester",
+      contactName: "Mr Test",
+      phoneNumbers: [
+        {
+          areaCode: "0151",
+          category: "WORK",
+          countryCode: "1",
+          extension: "",
+          id: "elvis1",
+          number: "123456",
+        },
+      ],
+      primaryEmailAddress: "testing@123.com",
+    };
     //will call the updateContact PUT function here
+    const updatedUser = await updateContact(jwt, contact.id, updatedUserInfo);
     console.log("Save edits");
     setIsEditing(false);
     setHasContactsChanged(!hasContactsChanged);
+    console.log(updatedUser);
   }
 
   function handleInput(callback, e) {

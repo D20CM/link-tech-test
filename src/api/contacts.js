@@ -67,6 +67,8 @@ export async function updateContact(jwt, id, newData) {
       {
         method: "PUT",
         headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
           Authorization: "Bearer " + jwt,
         },
         body: JSON.stringify(newData),
