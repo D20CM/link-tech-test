@@ -109,7 +109,7 @@ function ContactTile({
           onChange={(e) => handleInput(setPrimaryEmailAddress, e.target.value)}
         ></input>
         <p>
-          +{contact.phoneNumbers[0].phoneNumberFormatted} (
+          {contact.phoneNumbers[0].phoneNumberFormatted} (
           {contact.phoneNumbers[0].category})
         </p>
       </div>

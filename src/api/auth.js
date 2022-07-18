@@ -12,6 +12,7 @@ export async function handleLoginSubmit(username, password) {
     }
   );
   const data = await response.json();
+
   const jwt = data.token;
   return jwt;
 }

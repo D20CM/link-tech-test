@@ -8,6 +8,13 @@ function Login({
   username,
   password,
 }) {
+  // function handleClick() {
+  //   try {
+  //     handleLoginSubmit(username, password);
+  //   } catch (e) {
+  //     alert(e);
+  //   }
+  // }
   return (
     <div className={css.loginContainer}>
       <h3>Please log in</h3>
@@ -25,7 +32,9 @@ function Login({
       ></input>
       <button
         className={css.loginButton}
-        onClick={() => handleLoginSubmit(username, password)}
+        onClick={() => {
+          handleLoginSubmit(username, password);
+        }}
       >
         Login
       </button>

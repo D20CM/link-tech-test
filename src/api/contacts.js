@@ -33,6 +33,7 @@ export async function addContact(jwt, newContact) {
     );
     const data = await response.json();
     console.log(data);
+    alert(data.message);
     return data;
   } else {
     console.log("No jwt, I guess!");
@@ -75,7 +76,9 @@ export async function updateContact(jwt, id, newData) {
       }
     );
     const data = await response.json();
+    alert(data.message);
     console.log(data);
+
     return data;
   } else {
     console.log("No jwt, I guess!");

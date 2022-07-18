@@ -1,16 +1,14 @@
-export async function getCountries(jwt) {
+export async function getCountries() {
   console.log("calling utility/GET API");
 
   const response = await fetch(
     `https://interview.intrinsiccloud.net/utility/countries`,
     {
       method: "GET",
-      headers: {
-        Authorization: "Bearer " + jwt,
-      },
+      headers: {},
     }
   );
   const data = await response.json();
-  console.log(data);
+
   return data;
 }

@@ -1,6 +1,8 @@
 import css from "./addContact.module.css";
-import { React, useState } from "react";
+import { React, useEffect, useState } from "react";
 import { addContact } from "../../api/contacts";
+import { getCountries } from "../../api/utility";
+import CountrySelector from "../CountrySelector/CountrySelector";
 
 function AddContact({ jwt, hasContactsChanged, setHasContactsChanged }) {
   const [contactName, setContactName] = useState("");
@@ -42,6 +44,12 @@ function AddContact({ jwt, hasContactsChanged, setHasContactsChanged }) {
     setContactName("");
     setCompany("");
     setPrimaryEmailAddress("");
+    setAreaCode("");
+    setNumber("");
+    setCategory("");
+    setCountryCode("");
+    setExtension("");
+    setId("");
     setHasContactsChanged(!hasContactsChanged);
   }
 
@@ -79,6 +87,7 @@ function AddContact({ jwt, hasContactsChanged, setHasContactsChanged }) {
             value={number}
             onChange={(e) => handleInput(setNumber, e.target.value)}
           ></input>
+
           <select
             name="categories"
             className={css.categoryInput}
@@ -88,13 +97,15 @@ function AddContact({ jwt, hasContactsChanged, setHasContactsChanged }) {
             <option value="MOBILE">MOBILE</option>
             <option value="WORK">WORK</option>
           </select>
-          <input
+          <CountrySelector setCountryCode={setCountryCode} />
+
+          {/* <input
             type="text"
             className={css.countryCodeInput}
             placeholder="Country Code"
             value={countryCode}
             onChange={(e) => handleInput(setCountryCode, e.target.value)}
-          ></input>
+          ></input> */}
           <input
             type="text"
             className={css.extensionInput}
@@ -123,6 +134,7 @@ function AddContact({ jwt, hasContactsChanged, setHasContactsChanged }) {
           className={css.formSubmit}
         ></input>
       </form>
+      <p>{countryCode}</p>
     </section>
   );
 }

@@ -18,6 +18,7 @@ function App() {
   const [showAddContact, setShowAddContact] = useState(false);
   //hasContactsChanged is just a toggle to trigger refresh of contacts and call API again - true or false doesn't matter
   const [hasContactsChanged, setHasContactsChanged] = useState(false);
+  const [error, setError] = useState(null);
 
   function handleUsernameInput(inputString) {
     setUsername(inputString);
@@ -30,27 +31,45 @@ function App() {
 
   async function handleLoginSubmit(username, password) {
     console.log(username, password);
-    const response = await fetch(
-      "https://interview.intrinsiccloud.net/auth/login",
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/JSON" },
-        body: JSON.stringify({
-          password: password,
-          username: username,
-        }),
+    setError(null);
+    try {
+      const response = await fetch(
+        "https://interview.intrinsiccloud.net/auth/login",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/JSON" },
+          body: JSON.stringify({
+            password: password,
+            username: username,
+          }),
+        }
+      );
+      const status = response.status;
+      console.log("Status is: ", status);
+
+      const data = await response.json();
+      console.log(data);
+
+      if (status !== 200) {
+        let error = new Error();
+        error = { message: data.message, status: status };
+        throw error;
       }
-    );
-    const data = await response.json();
-    console.log(data);
-    setJwt(data.token);
-    const userData = await getUserProfile(data.token);
-    setIsLoggedIn(true);
-    setUser(userData);
+
+      setJwt(data.token);
+      const userData = await getUserProfile(data.token);
+      setIsLoggedIn(true);
+      setUser(userData);
+    } catch (e) {
+      setError(e);
+      console.log(e);
+    }
   }
 
   async function getUserProfile(jwt) {
-    if (jwt) {
+    setError(null);
+    try {
+      // if (jwt) {
       const response = await fetch(
         `https://interview.intrinsiccloud.net/profile`,
         {
@@ -63,6 +82,12 @@ function App() {
       const data = await response.json();
       console.log(data);
       return data;
+      // } else {
+      //   console.log("no jwt");
+      // }
+    } catch (error) {
+      setError(error);
+      console.log(error);
     }
   }
 
@@ -74,6 +99,9 @@ function App() {
       <div className="pageRight">
         <Statusbar imageUrl={imageUrl} user={user} />
         <section className="mainContainer">
+          {error && (
+            <div className="error">{error.status + ": " + error.message}</div>
+          )}
           {isLoggedIn ? (
             <Dashboard
               user={user}
