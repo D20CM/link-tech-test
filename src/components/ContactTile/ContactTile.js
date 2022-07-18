@@ -38,8 +38,8 @@ function ContactTile({
 
   async function handleSave() {
     const updatedUserInfo = {
-      company: "Tester",
-      contactName: "Mr Test",
+      company: company,
+      contactName: contactName,
       phoneNumbers: [
         {
           areaCode: "0151",
@@ -50,7 +50,7 @@ function ContactTile({
           number: "123456",
         },
       ],
-      primaryEmailAddress: "testing@123.com",
+      primaryEmailAddress: primaryEmailAddress,
     };
     //will call the updateContact PUT function here
     const updatedUser = await updateContact(jwt, contact.id, updatedUserInfo);
