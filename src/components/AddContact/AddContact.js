@@ -32,7 +32,7 @@ function AddContact({ jwt, hasContactsChanged, setHasContactsChanged }) {
           countryCode: countryCode,
           extension: extension,
           id: id,
-          number: "987654",
+          number: number,
         },
       ],
       primaryEmailAddress: primaryEmailAddress,

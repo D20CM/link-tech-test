@@ -36,4 +36,27 @@ export async function getUserProfileImage(jwt, id) {
 }
 
 //post profile image
+
+export async function changeProfileImage(jwt, formData) {
+  if (jwt) {
+    console.log("calling profile/profileImage/POST API");
+
+    const response = await fetch(
+      `https://interview.intrinsiccloud.net/profile/profileImage`,
+      {
+        method: "POST",
+        headers: {
+          Authorization: "Bearer " + jwt,
+          "content-type": "multipart/form-data",
+          Accept: "*/*",
+        },
+        body: formData,
+      }
+    );
+
+    const data = await response.json();
+    return data;
+  }
+}
+
 //change password

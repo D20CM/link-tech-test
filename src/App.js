@@ -29,6 +29,8 @@ function App() {
     console.log(password);
   }
 
+  //remember to take these two fetch functions out (import from /api)
+
   async function handleLoginSubmit(username, password) {
     console.log(username, password);
     setError(null);
@@ -69,7 +71,6 @@ function App() {
   async function getUserProfile(jwt) {
     setError(null);
     try {
-      // if (jwt) {
       const response = await fetch(
         `https://interview.intrinsiccloud.net/profile`,
         {
@@ -82,9 +83,6 @@ function App() {
       const data = await response.json();
       console.log(data);
       return data;
-      // } else {
-      //   console.log("no jwt");
-      // }
     } catch (error) {
       setError(error);
       console.log(error);

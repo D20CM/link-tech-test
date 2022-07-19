@@ -23,7 +23,7 @@ function CountrySelector({ setCountryCode }) {
 
   return countries !== null ? (
     <div className={css.countrySelector}>
-      <label for="countries">Country Code</label>
+      <label htmlFor="countries">Country Code</label>
       <select
         name="Country Code"
         className={css.countrySelector}

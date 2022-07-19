@@ -1,6 +1,7 @@
 import css from "./dashboard.module.css";
 import { React, useEffect, useState } from "react";
 import { FiEdit } from "react-icons/fi";
+import EditProfilePicture from "../EditProfilePicture/EditProfilePicture";
 
 function Dashboard({
   user,
@@ -12,7 +13,7 @@ function Dashboard({
 }) {
   const [profileImageUrl, setProfileImageUrl] = useState(null);
   const [isImageEditDisplayed, setIsImageEditDisplayed] = useState(false);
-  const [newProfileUrl, setNewProfileUrl] = useState("");
+  const [newProfileFile, setNewProfileFile] = useState("");
 
   function handleClick() {
     console.log("Clickety-click");
@@ -42,17 +43,17 @@ function Dashboard({
     getUserProfileImage(jwt, 2);
   }, [jwt]);
 
-  function handleSubmitImageUrl() {
-    console.log("New profile URL will be: ", newProfileUrl);
-    setNewProfileUrl("");
-    //send post request to profile/profileImage here
-    //will need to construct request and file upload with fs
-  }
+  // function handleSubmitImageUrl() {
+  //   console.log("New profile URL will be: ", newProfileUrl);
+  //   setNewProfileUrl("");
+  //   //send post request to profile/profileImage here
+  //   //will need to construct request and file upload with fs
+  // }
 
-  function handleChangeUrl(url) {
-    setNewProfileUrl(url);
-    console.log(url);
-  }
+  // function handleChangeUrl(url) {
+  //   setNewProfileUrl(url);
+  //   console.log(url);
+  // }
 
   return (
     <div className={css.dashboardContainer}>
@@ -72,15 +73,13 @@ function Dashboard({
           </button>
 
           {isImageEditDisplayed && (
-            <>
-              <input
-                type="text"
-                placeholder="enter new image url"
-                value={newProfileUrl}
-                onChange={(e) => handleChangeUrl(e.target.value)}
-              ></input>
-              <button onClick={() => handleSubmitImageUrl()}>Submit</button>
-            </>
+            <EditProfilePicture
+              // handleChangeUrl={handleChangeUrl}
+              // handleSubmitImageUrl={handleSubmitImageUrl}
+              jwt={jwt}
+              newProfileFile={newProfileFile}
+              setNewProfileFile={setNewProfileFile}
+            />
           )}
         </div>
       )}

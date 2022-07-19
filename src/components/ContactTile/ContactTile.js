@@ -80,7 +80,7 @@ function ContactTile({
           {contact.primaryEmailAddress}
         </a>
         <p>
-          +{contact.phoneNumbers[0].phoneNumberFormatted} (
+          {contact.phoneNumbers[0].phoneNumberFormatted} (
           {contact.phoneNumbers[0].category})
         </p>
       </div>
