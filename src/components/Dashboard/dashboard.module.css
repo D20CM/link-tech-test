@@ -11,6 +11,17 @@
     grid-template-columns: 1fr 4fr;
 }
 
+.leftSide{
+    
+    padding: 0;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.rightSide{
+    padding: 2em;
+}
+
 .profileImage{
     display: flex;
     border-radius: 50%;
@@ -64,10 +75,15 @@
 }
 
 .imageEditControls{
-    /* border: 2px solid pink; */
+    
+   
     background-color: rgb(196, 196, 196);
     /* padding: 1em; */
     border-radius: 0.4em;
+    max-width: 80%;
+    padding: 0;
+    margin: 0 auto;
+    
     
 }
 
@@ -78,11 +94,38 @@
 
 
 }
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 500px) {
     .dashboardContainer{
-        padding: 1em;
+        display: block;
+        padding: 1em 0;
+        
         font-size: 0.8em;
+        max-width: 100%;
+        
+    }
+    .photoArea{
+        padding: 0;
+        
+        
     }
 
+    .profileImage{
+        min-width: 2em;
+        
+    }
+
+    .leftSide{
+        
+
+        margin: 0;
+        padding: 0;
+      
+       
+    }
+    .rightSide{
+       
+        padding-left: 2em;
+       
+    }
 
 }

@@ -51,7 +51,7 @@ function Dashboard({
   return (
     <div className={css.dashboardContainer}>
       {profileImageUrl && (
-        <div>
+        <div className={css.leftSide}>
           <div className={css.photoArea}>
             <img
               src={profileImageUrl}
@@ -82,7 +82,7 @@ function Dashboard({
           </div>
         </div>
       )}
-      <div>
+      <div className={css.rightSide}>
         <h2>{user.displayName}</h2>
         <p>{user.emailAddress}</p>
         <button

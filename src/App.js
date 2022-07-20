@@ -23,11 +23,11 @@ function App() {
 
   function handleUsernameInput(inputString) {
     setUsername(inputString);
-    console.log(username);
+    // console.log(username);
   }
   function handlePasswordInput(inputString) {
     setPassword(inputString);
-    console.log(password);
+    // console.log(password);
   }
 
   //remember to take these two fetch functions out (import from /api)
@@ -90,13 +90,22 @@ function App() {
     }
   }
 
+  function showBurgerMenu() {
+    console.log("show burger menu");
+  }
+
   return (
     <div className="App">
       <div className="pageLeft">
         <Sidebar />
       </div>
       <div className="pageRight">
-        <Statusbar imageUrl={imageUrl} imageName={imageName} user={user} />
+        <Statusbar
+          imageUrl={imageUrl}
+          imageName={imageName}
+          user={user}
+          showBurgerMenu={showBurgerMenu}
+        />
         <section className="mainContainer">
           {error && (
             <div className="error">{error.status + ": " + error.message}</div>
@@ -121,7 +130,7 @@ function App() {
                 username={username}
                 password={password}
               />
-              {jwt ? <p>{jwt}</p> : <p>no jwt yet</p>}{" "}
+              {/* {jwt ? <p>{jwt}</p> : <p>no jwt yet</p>}{" "} */}
             </>
           )}
           {jwt && showContacts && (

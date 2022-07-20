@@ -1,13 +1,18 @@
 .EditProfilePicture{
-    /* border: 2px solid green; */
+    
     text-align: center;
+    padding: 1em  0;
+    margin: 1em 0;
 }
 
 .fileInput{
+    padding: 0;
     background-color: rgba(0, 0, 0, 0.658);
     color: white;
-    margin: 1em;
+    margin: 2em 0;
     /* width: 200px; */
+    max-width: 90%;
+    /* display: none; */
    
 }
 
@@ -21,7 +26,8 @@
     margin: 0 1em 1em;
     border-radius: 0.2em;
     border: none;
-    padding: 0.5em 2em;
+    padding: 0.5em 1.5em;
+    
 }
 
 .EditProfilePicture button:hover{

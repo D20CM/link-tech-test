@@ -98,7 +98,7 @@ function ContactTile({
           //these input handlers are only changing the state in THIS component - should be ok for constructing an object to pass to the put request.  Is there anywhere that might get broken by this???
           onChange={(e) => handleInput(setContactName, e.target.value)}
         ></input>
-        <p>{contactName}</p>
+
         <input
           className={css.company}
           value={company}
