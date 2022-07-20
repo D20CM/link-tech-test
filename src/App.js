@@ -20,6 +20,7 @@ function App() {
   //hasContactsChanged is just a toggle to trigger refresh of contacts and call API again - true or false doesn't matter
   const [hasContactsChanged, setHasContactsChanged] = useState(false);
   const [error, setError] = useState(null);
+  const [isBurgerOpen, setIsBurgerOpen] = useState(false);
 
   function handleUsernameInput(inputString) {
     setUsername(inputString);
@@ -92,10 +93,17 @@ function App() {
 
   function showBurgerMenu() {
     console.log("show burger menu");
+    setIsBurgerOpen(true);
+  }
+
+  function closeBurgerMenu() {
+    console.log("close burger menu");
+    setIsBurgerOpen(false);
   }
 
   return (
     <div className="App">
+      {isBurgerOpen ? <div className="burgerMenu">MENU</div> : null}
       <div className="pageLeft">
         <Sidebar />
       </div>
@@ -104,7 +112,10 @@ function App() {
           imageUrl={imageUrl}
           imageName={imageName}
           user={user}
+          // isBurgerOpen={isBurgerOpen}
           showBurgerMenu={showBurgerMenu}
+          closeBurgerMenu={closeBurgerMenu}
+          isBurgerOpen={isBurgerOpen}
         />
         <section className="mainContainer">
           {error && (

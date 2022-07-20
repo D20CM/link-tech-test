@@ -15,6 +15,14 @@
   font-weight: 600;
 }
 
+.burgerMenu{
+  background-color: rgba(0, 0, 0, 0.816);
+  color: white;
+  padding: 6em 2em;
+  position: fixed;
+  top: 0;
+}
+
 @media screen and (max-width: 900px) {
   .App{
       background-size: contain;
