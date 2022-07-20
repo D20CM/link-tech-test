@@ -14,6 +14,7 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [user, setUser] = useState({});
   const [imageUrl, setImageUrl] = useState("");
+  const [imageName, setImageName] = useState("");
   const [showContacts, setShowContacts] = useState(false);
   const [showAddContact, setShowAddContact] = useState(false);
   //hasContactsChanged is just a toggle to trigger refresh of contacts and call API again - true or false doesn't matter
@@ -95,7 +96,7 @@ function App() {
         <Sidebar />
       </div>
       <div className="pageRight">
-        <Statusbar imageUrl={imageUrl} user={user} />
+        <Statusbar imageUrl={imageUrl} imageName={imageName} user={user} />
         <section className="mainContainer">
           {error && (
             <div className="error">{error.status + ": " + error.message}</div>
@@ -105,6 +106,7 @@ function App() {
               user={user}
               jwt={jwt}
               setImageUrl={setImageUrl}
+              setImageName={setImageName}
               showContacts={showContacts}
               setShowContacts={setShowContacts}
               setShowAddContact={setShowAddContact}

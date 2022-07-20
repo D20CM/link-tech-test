@@ -7,6 +7,7 @@ function Dashboard({
   user,
   jwt,
   setImageUrl,
+  setImageName,
   showContacts,
   setShowContacts,
   setShowAddContact,
@@ -14,46 +15,39 @@ function Dashboard({
   const [profileImageUrl, setProfileImageUrl] = useState(null);
   const [isImageEditDisplayed, setIsImageEditDisplayed] = useState(false);
   const [newProfileFile, setNewProfileFile] = useState("");
+  const [newImageName, setNewImageName] = useState("");
 
   function handleClick() {
     console.log("Clickety-click");
     setIsImageEditDisplayed(!isImageEditDisplayed);
   }
 
-  useEffect(() => {
-    async function getUserProfileImage(jwt, id) {
-      if (jwt) {
-        const response = await fetch(
-          `https://interview.intrinsiccloud.net/profile/profileImage/${id}`,
-          {
-            method: "GET",
-            headers: {
-              Authorization: "Bearer " + jwt,
-            },
-          }
-        );
-        const data = response.url;
-        console.log("This should be the image: ", data);
-        setProfileImageUrl(data);
-        setImageUrl(data);
-        return data;
-      }
+  async function getUserProfileImage(jwt, id) {
+    if (jwt) {
+      const response = await fetch(
+        `https://interview.intrinsiccloud.net/profile/profileImage/${id}`,
+        {
+          method: "GET",
+          headers: {
+            Authorization: "Bearer " + jwt,
+          },
+        }
+      );
+      const data = response.url;
+      const status = response.status;
+      console.log(status);
+      console.log("This should be the image: ", data);
+      // setProfileImageUrl("");
+      setProfileImageUrl(data);
+      setImageUrl(data);
+      return data;
     }
+  }
+
+  useEffect(() => {
     //id should be returned in user object, but it's returning null, so this is hardcoded for now
     getUserProfileImage(jwt, 2);
-  }, [jwt]);
-
-  // function handleSubmitImageUrl() {
-  //   console.log("New profile URL will be: ", newProfileUrl);
-  //   setNewProfileUrl("");
-  //   //send post request to profile/profileImage here
-  //   //will need to construct request and file upload with fs
-  // }
-
-  // function handleChangeUrl(url) {
-  //   setNewProfileUrl(url);
-  //   console.log(url);
-  // }
+  }, [jwt, newProfileFile]);
 
   return (
     <div className={css.dashboardContainer}>
@@ -61,6 +55,7 @@ function Dashboard({
         <div className={css.photoArea}>
           <img
             src={profileImageUrl}
+            key={newImageName}
             alt="userProfileImage"
             className={css.profileImage}
           ></img>
@@ -74,8 +69,10 @@ function Dashboard({
 
           {isImageEditDisplayed && (
             <EditProfilePicture
-              // handleChangeUrl={handleChangeUrl}
-              // handleSubmitImageUrl={handleSubmitImageUrl}
+              newImageName={newImageName}
+              setNewImageName={setNewImageName}
+              setImageName={setImageName}
+              getUserProfileImage={getUserProfileImage}
               jwt={jwt}
               newProfileFile={newProfileFile}
               setNewProfileFile={setNewProfileFile}

@@ -1,7 +1,7 @@
 import React from "react";
 import css from "./statusbar.module.css";
 
-function Statusbar({ imageUrl, user }) {
+function Statusbar({ imageUrl, imageName, user }) {
   return (
     <div className={css.statusBar}>
       <h1>Link Contacts System</h1>
@@ -11,6 +11,7 @@ function Statusbar({ imageUrl, user }) {
           <li>
             <img
               src={imageUrl}
+              key={imageName}
               alt="user profile pic"
               className={css.profilePic}
             ></img>

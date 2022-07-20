@@ -47,8 +47,6 @@ export async function changeProfileImage(jwt, formData) {
         method: "POST",
         headers: {
           Authorization: "Bearer " + jwt,
-          "content-type": "multipart/form-data",
-          Accept: "*/*",
         },
         body: formData,
       }
