@@ -134,7 +134,6 @@ function AddContact({ jwt, hasContactsChanged, setHasContactsChanged }) {
           className={css.formSubmit}
         ></input>
       </form>
-      <p>{countryCode}</p>
     </section>
   );
 }

@@ -12,11 +12,14 @@
 }
 
 .profileImage{
+    display: flex;
     border-radius: 50%;
-    width: 6em;
-    margin: 0 2em;
+    width: 80%;
+    min-width: 10em;
+    max-width: 200px;
+    margin: 0 auto;
     background-size: cover;
-    border: 2px solid navy;
+    /* border: 2px solid navy; */
 }
 
 .changeProfileImageButton{
@@ -30,20 +33,27 @@
     position: absolute;
     bottom: 0;
     right: 0;
+    cursor: pointer;
+   
+
 }
 
 .photoArea{
     position: relative;
-    height: 6em;
+    /* height: 6em; */
     margin: 2em;
+    /* border: 2px solid red; */
+    /* padding: 2em; */
     
 }
 
 .contactsButton{
-    margin: 1em;
+    margin: 1em 0;
     border-radius: 4px;
     background-color: #001a3e;
     color: white;
+    cursor: pointer;
+    padding: 0.3em 1em;
 
 
 }
@@ -51,4 +61,28 @@
 .editImageIcon{
     font-size: 2em;
     margin: 0 0.2em;
+}
+
+.imageEditControls{
+    /* border: 2px solid pink; */
+    background-color: rgb(196, 196, 196);
+    /* padding: 1em; */
+    border-radius: 0.4em;
+    
+}
+
+@media screen and (max-width: 900px) {
+    .dashboardContainer{
+        grid-template-columns: 1fr;
+    }
+
+
+}
+@media screen and (max-width: 400px) {
+    .dashboardContainer{
+        padding: 1em;
+        font-size: 0.8em;
+    }
+
+
 }

@@ -1,12 +1,16 @@
 import React from "react";
 import css from "./statusbar.module.css";
+import { GiHamburgerMenu } from "react-icons/gi";
 
 function Statusbar({ imageUrl, imageName, user }) {
   return (
     <div className={css.statusBar}>
       <h1>Link Contacts System</h1>
       <ul className={css.statusBarMenu}>
-        <li>help</li>
+        <li className={css.burgerMenu}>
+          <GiHamburgerMenu />
+        </li>
+        <li>Help</li>
         {imageUrl && (
           <li>
             <img

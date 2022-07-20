@@ -27,3 +27,16 @@
     margin-right: 1em;
  
 }
+
+@media screen and (max-width: 900px) {
+    .sideMenu{
+        display: none;
+        width: 30vw;
+    min-width: 20px;
+    min-height: 0%;
+    }
+
+    .sideMenu ul{
+        padding-left: 1em;
+    }
+}

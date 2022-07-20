@@ -3,6 +3,7 @@
   background-image: url(../public/megayacht.jpg);
   background-size: cover;
   min-height: 100vh;
+ 
   display: grid;
   grid-template-columns: 1.5fr 8.5fr;
 }
@@ -12,4 +13,20 @@
   background-color: rgb(245, 68, 68);
   color: white;
   font-weight: 600;
+}
+
+@media screen and (max-width: 900px) {
+  .App{
+      background-size: contain;
+  min-width: 100vw;
+  grid-template-columns: 1fr;
+  }
+
+  .pageLeft{
+    display: none;
+  }
+
+  .pageRight{
+    
+  }
 }

@@ -45,13 +45,14 @@ function EditProfilePicture({
   }
 
   return (
-    <>
+    <div className={css.EditProfilePicture}>
       <input
         type="file"
+        className={css.fileInput}
         onChange={(e) => handleChangeFile(e.target.files[0])}
       ></input>
       <button onClick={() => handleSubmitImageFile()}>Upload</button>
-    </>
+    </div>
   );
 }
 

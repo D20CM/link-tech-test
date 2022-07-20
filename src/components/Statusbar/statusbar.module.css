@@ -1,6 +1,6 @@
 .statusBar{
     width: 100%;
-    min-height: 3em;
+    /* min-height: 3em; */
     background-color: #efede7;
     display: flex;
     justify-content: space-between;
@@ -27,4 +27,40 @@ list-style: none;
 .profilePic{
     width: 2em;
     border-radius: 50%;
+}
+
+.statusBar h1{
+    /* font-size: 1em; */
+}
+
+@media screen and (max-width: 900px) {
+    .statusBar{
+        display: flex;
+        flex-direction: column;
+    }
+
+    h1{
+        font-size: 2em;
+        margin: 0.3em 0;
+    }
+
+    .statusBarMenu{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        padding: 0;
+    }
+}
+
+@media screen and (min-width: 900px) {
+    .burgerMenu{
+        display: none;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .statusBar{
+font-size: 0.8em;
+    }
 }

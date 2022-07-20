@@ -37,7 +37,6 @@ function Dashboard({
       const status = response.status;
       console.log(status);
       console.log("This should be the image: ", data);
-      // setProfileImageUrl("");
       setProfileImageUrl(data);
       setImageUrl(data);
       return data;
@@ -52,32 +51,35 @@ function Dashboard({
   return (
     <div className={css.dashboardContainer}>
       {profileImageUrl && (
-        <div className={css.photoArea}>
-          <img
-            src={profileImageUrl}
-            key={newImageName}
-            alt="userProfileImage"
-            className={css.profileImage}
-          ></img>
-          {/* will need to render close button if edit is open */}
-          <button
-            className={css.changeProfileImageButton}
-            onClick={() => handleClick()}
-          >
-            <FiEdit className={css.editImageIcon} />
-          </button>
-
-          {isImageEditDisplayed && (
-            <EditProfilePicture
-              newImageName={newImageName}
-              setNewImageName={setNewImageName}
-              setImageName={setImageName}
-              getUserProfileImage={getUserProfileImage}
-              jwt={jwt}
-              newProfileFile={newProfileFile}
-              setNewProfileFile={setNewProfileFile}
-            />
-          )}
+        <div>
+          <div className={css.photoArea}>
+            <img
+              src={profileImageUrl}
+              key={newImageName}
+              alt="userProfileImage"
+              className={css.profileImage}
+            ></img>
+            {/* will need to render close button if edit is open */}
+            <button
+              className={css.changeProfileImageButton}
+              onClick={() => handleClick()}
+            >
+              <FiEdit className={css.editImageIcon} />
+            </button>
+          </div>
+          <div className={css.imageEditControls}>
+            {isImageEditDisplayed && (
+              <EditProfilePicture
+                newImageName={newImageName}
+                setNewImageName={setNewImageName}
+                setImageName={setImageName}
+                getUserProfileImage={getUserProfileImage}
+                jwt={jwt}
+                newProfileFile={newProfileFile}
+                setNewProfileFile={setNewProfileFile}
+              />
+            )}
+          </div>
         </div>
       )}
       <div>

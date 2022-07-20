@@ -19,7 +19,7 @@
 
 .tileGrid{
     display: grid;
-    grid-template-columns: repeat( auto-fit, minmax(280px, 1fr) );
+    grid-template-columns: repeat( auto-fit, minmax(230px, 1fr) );
    
 }
 
@@ -49,4 +49,17 @@
 
 .contactButtonIcon{
     margin-right: 1em;
+}
+
+@media screen and (max-width: 900px) {
+    .contactsContainer{
+        padding: 1em;
+    }
+}
+@media screen and (max-width: 400px) {
+    .contactsContainer{
+        margin: 1em auto;
+        /* width: 90%; */
+        padding: 1em 0.6em;
+    }
 }

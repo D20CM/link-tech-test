@@ -6,7 +6,7 @@
     border-radius: 0.4em;
     text-align: left;
     max-width: 500px;
-    min-width: 280px;
+    /* min-width: 280px; */
 
 }
 
@@ -24,4 +24,10 @@
 
 .company{
    
+}
+
+@media screen and (max-width: 400px) {
+    .contactTile, .contactTileEdit{
+        font-size: 0.8em;
+    }
 }
