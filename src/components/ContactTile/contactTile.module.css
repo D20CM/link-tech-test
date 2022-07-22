@@ -2,20 +2,41 @@
     
     padding: 1em;
     margin: 1em;
-    color:#001a3e;
+    color:var(--primary-text-color);
     border-radius: 0.4em;
     text-align: left;
     max-width: 500px;
     /* min-width: 280px; */
+    box-shadow: var(--main-box-shadow);
+    /* background-color: rgba(0, 0, 0, 0.104); */
+    background-color: var(--main-grey-bg);
 
+}
+
+.contactTile a, .contactTileEdit a{
+    color: var(--primary-text-color);
 }
 
 .contactTile{
-    border: 2px solid  #001a3e;
+    /* border: 1px solid  #001a3e; */
 }
 
 .contactTileEdit{
-    border: 2px solid  #c20303;
+    border: 2px solid  var(--red-highlight-color);
+}
+
+.contactTile button, .contactTileEdit button{
+    
+        background-color: var(--primary-text-color);;
+        color: var(--main-bright-white);
+       margin: 1em 0.3em 0;
+        border-radius: 0.2em;
+        border: none;
+        padding: 0.3em 1em;
+        cursor: pointer;
+    box-shadow: var(--main-box-shadow);
+
+    
 }
 
 .contactName{

@@ -9,8 +9,8 @@
     width: 80%;
     margin: 3em auto;
     padding: 3em;
-    background-color: #efede7;
-    color: #001a3e;
+    background-color: var(--main-light-bg);
+    color: var(--primary-text-color);;
     border-radius: 8px;
     text-align: center;
     
@@ -36,8 +36,8 @@
 }
 
 .addContactButton{
-    background-color: #001a3e;
-    color: white;
+    background-color: var(--primary-text-color);
+    color: var(--main-bright-white);
     padding: 0.5em 1em;
     border-radius: 0.2em;
 }

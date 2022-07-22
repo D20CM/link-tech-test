@@ -32,7 +32,11 @@ function Statusbar({
             ></img>
           </li>
         )}
-        {user && <li>{user.displayName}</li>}
+        {user && (
+          <li>
+            <b>{user.displayName}</b>
+          </li>
+        )}
       </ul>
     </div>
   );

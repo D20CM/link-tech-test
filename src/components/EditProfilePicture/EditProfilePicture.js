@@ -46,6 +46,7 @@ function EditProfilePicture({
 
   return (
     <div className={css.EditProfilePicture}>
+      <h2>Change Profile Image</h2>
       <input
         type="file"
         className={css.fileInput}

@@ -1,0 +1,29 @@
+.burgerMenu{
+    background-color: var(--primary-text-color);
+    opacity: 0.95;
+    color: var(--main-bright-white);
+    padding: 1em;
+    position: fixed;
+    top: 0;
+    z-index: 100;
+  }
+
+  .burgerMenu > ul{
+    display: flex;
+    flex-direction: column;
+   max-height: 100%;
+   color: var(--main-bright-white);
+   padding: 1em;
+}
+
+.burgerMenu li{
+    margin: 0.2em 0;
+    list-style-type: none;
+    text-align: left;
+    color: var(--main-bright-white);
+}
+
+.menuIcon{
+    margin-right: 1em;
+    fill: var(--main-bright-white);
+}

@@ -2,6 +2,7 @@ import css from "./dashboard.module.css";
 import { React, useEffect, useState } from "react";
 import { FiEdit } from "react-icons/fi";
 import EditProfilePicture from "../EditProfilePicture/EditProfilePicture";
+import ChangePassword from "../ChangePassword/ChangePassword";
 
 function Dashboard({
   user,
@@ -11,6 +12,8 @@ function Dashboard({
   showContacts,
   setShowContacts,
   setShowAddContact,
+  showChangePassword,
+  setShowChangePassword,
 }) {
   const [profileImageUrl, setProfileImageUrl] = useState(null);
   const [isImageEditDisplayed, setIsImageEditDisplayed] = useState(false);
@@ -94,6 +97,15 @@ function Dashboard({
         >
           Show/Hide Contacts
         </button>
+        <button
+          onClick={() => {
+            setShowChangePassword(!showChangePassword);
+          }}
+          className={css.changePasswordButton}
+        >
+          Change password
+        </button>
+        {showChangePassword ? <ChangePassword jwt={jwt} /> : null}
       </div>
     </div>
   );

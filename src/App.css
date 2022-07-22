@@ -10,14 +10,14 @@
 
 .error{
   padding: 5em;
-  background-color: rgb(245, 68, 68);
-  color: white;
+  background-color: var(--red-highlight-color);
+  color: var(--main-bright-white);
   font-weight: 600;
 }
 
 .burgerMenu{
-  background-color: rgba(0, 0, 0, 0.816);
-  color: white;
+  background-color: var(--primary-text-color);
+  color: var(--main-bright-white);
   padding: 6em 2em;
   position: fixed;
   top: 0;
@@ -28,6 +28,9 @@
       background-size: contain;
   min-width: 100vw;
   grid-template-columns: 1fr;
+  /* background-image: url(../public/yacht-portrait-3.jpg); */
+  background-size: cover; 
+
   }
 
   .pageLeft{

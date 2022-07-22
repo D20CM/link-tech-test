@@ -2,8 +2,8 @@
     width: 80%;
     margin: 3em auto;
     padding: 3em;
-    background-color: #efede7;
-    color: #001a3e;
+    background-color: var(--main-light-bg);
+    color: var(--primary-text-color);
     border-radius: 8px;
     min-height: 15em;
     text-align: left;
@@ -31,13 +31,15 @@
     margin: 0 auto;
     background-size: cover;
     /* border: 2px solid navy; */
+    box-shadow: var(--main-box-shadow);
+
 }
 
 .changeProfileImageButton{
     font-size: 0.5em;
    
-    background-color: #001a3e;
-    color: white;
+    background-color: var(--primary-text-color);
+    color: var(--main-bright-white);
     max-height: 5em;
     border-radius: 4px;
     max-width: 10em;
@@ -45,6 +47,8 @@
     bottom: 0;
     right: 0;
     cursor: pointer;
+    box-shadow: var(--main-box-shadow);
+
    
 
 }
@@ -58,14 +62,14 @@
     
 }
 
-.contactsButton{
-    margin: 1em 0;
+.contactsButton, .changePasswordButton{
+    margin: 1em 1em 0 0;
     border-radius: 4px;
-    background-color: #001a3e;
-    color: white;
+    background-color:var(--primary-text-color);
+    color: var(--main-bright-white);
     cursor: pointer;
     padding: 0.3em 1em;
-
+    box-shadow: var(--main-box-shadow);
 
 }
 
@@ -77,13 +81,13 @@
 .imageEditControls{
     
    
-    background-color: rgb(196, 196, 196);
+    background-color: var(--main-grey-bg);
     /* padding: 1em; */
     border-radius: 0.4em;
     max-width: 80%;
     padding: 0;
     margin: 0 auto;
-    
+    box-shadow: var(--main-box-shadow);
     
 }
 

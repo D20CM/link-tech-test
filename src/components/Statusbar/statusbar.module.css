@@ -1,11 +1,13 @@
 .statusBar{
     width: 100%;
     /* min-height: 3em; */
-    background-color: #efede7;
+  
+    background-color: var(--main-light-bg);
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 2em;
+    color: var(--primary-text-color)
 }
 
 .statusBarMenu{
@@ -37,6 +39,11 @@
     .statusBar{
         display: flex;
         flex-direction: column;
+        /* background-color: var(--primary-text-color);*/
+        color: var(--main-bright-white); 
+    background-color: rgba(0,0,0, 0.7);
+
+       
     }
 
     h1{

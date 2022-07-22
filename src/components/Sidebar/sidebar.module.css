@@ -3,29 +3,32 @@
     min-width: 200px;
     min-height: 100%;
     background-color: rgba(0,0,0, 0.7);
-    color: rgb(211, 211, 211);
+    color: var(--main-bright-white);
 }
 
 .sideMenu > h2{
     padding: 3em 0;
     font-weight: 500;
+    color: var(--main-bright-white);
 }
 
 .sideMenu > ul{
     display: flex;
     flex-direction: column;
    max-height: 100%;
+   color: var(--main-bright-white);
 }
 
 .sideMenu li{
     margin: 1em 0;
     list-style-type: none;
     text-align: left;
+    color: var(--main-bright-white);
 }
 
 .menuIcon{
     margin-right: 1em;
- 
+    fill: var(--main-bright-white);
 }
 
 @media screen and (max-width: 900px) {

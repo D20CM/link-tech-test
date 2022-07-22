@@ -6,6 +6,7 @@ import Contacts from "./components/Contacts/Contacts";
 import { useState } from "react";
 import Dashboard from "./components/Dashboard/Dashboard";
 import AddContact from "./components/AddContact/AddContact";
+import BurgerMenu from "./components/BurgerMenu/BurgerMenu";
 
 function App() {
   const [username, setUsername] = useState("");
@@ -21,6 +22,7 @@ function App() {
   const [hasContactsChanged, setHasContactsChanged] = useState(false);
   const [error, setError] = useState(null);
   const [isBurgerOpen, setIsBurgerOpen] = useState(false);
+  const [showChangePassword, setShowChangePassword] = useState(false);
 
   function handleUsernameInput(inputString) {
     setUsername(inputString);
@@ -103,7 +105,7 @@ function App() {
 
   return (
     <div className="App">
-      {isBurgerOpen ? <div className="burgerMenu">MENU</div> : null}
+      {isBurgerOpen ? <BurgerMenu closeBurgerMenu={closeBurgerMenu} /> : null}
       <div className="pageLeft">
         <Sidebar />
       </div>
@@ -130,6 +132,8 @@ function App() {
               showContacts={showContacts}
               setShowContacts={setShowContacts}
               setShowAddContact={setShowAddContact}
+              showChangePassword={showChangePassword}
+              setShowChangePassword={setShowChangePassword}
             />
           ) : (
             <>

@@ -58,3 +58,24 @@ export async function changeProfileImage(jwt, formData) {
 }
 
 //change password
+
+export async function changePassword(jwt, passwordInfo) {
+  if (jwt) {
+    console.log("calling profile/changePassword/POST API");
+
+    const response = await fetch(
+      `https://interview.intrinsiccloud.net/profile/changePassword`,
+      {
+        method: "POST",
+        headers: {
+          Authorization: "Bearer " + jwt,
+          "Content-Type": "application/JSON",
+        },
+        body: JSON.stringify(passwordInfo),
+      }
+    );
+
+    const data = await response.json();
+    return data;
+  }
+}
