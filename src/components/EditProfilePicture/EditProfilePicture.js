@@ -16,7 +16,7 @@ function EditProfilePicture({
 
   useEffect(() => {
     getUserProfileImage(jwt, 2);
-  }, [changed, jwt]);
+  }, [changed, jwt, getUserProfileImage]);
 
   async function handleSubmitImageFile() {
     //send post request to profile/profileImage here

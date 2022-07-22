@@ -3,7 +3,6 @@ import css from "./sidebar.module.css";
 import { AiOutlineContacts, AiOutlineDashboard } from "react-icons/ai";
 import { BiMessageDetail } from "react-icons/bi";
 import { RiShip2Line, RiTruckLine, RiShoppingCartLine } from "react-icons/ri";
-import { GrCatalog } from "react-icons/gr";
 import { MdScreenSearchDesktop } from "react-icons/md";
 
 function Sidebar() {

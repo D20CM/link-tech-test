@@ -49,6 +49,8 @@ function Dashboard({
   useEffect(() => {
     //id should be returned in user object, but it's returning null, so this is hardcoded for now
     getUserProfileImage(jwt, 2);
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [jwt, newProfileFile]);
 
   return (

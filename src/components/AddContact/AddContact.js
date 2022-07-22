@@ -1,7 +1,7 @@
 import css from "./addContact.module.css";
-import { React, useEffect, useState } from "react";
+import { React, useState } from "react";
 import { addContact } from "../../api/contacts";
-import { getCountries } from "../../api/utility";
+
 import CountrySelector from "../CountrySelector/CountrySelector";
 import { FaWindowClose } from "react-icons/fa";
 
@@ -13,7 +13,7 @@ function AddContact({
 }) {
   const [contactName, setContactName] = useState("");
   const [company, setCompany] = useState("");
-  const [phoneNumbers, setPhoneNumbers] = useState([]);
+  // const [phoneNumbers, setPhoneNumbers] = useState([]);
   const [areaCode, setAreaCode] = useState("");
   const [number, setNumber] = useState("");
   const [category, setCategory] = useState("");

@@ -66,22 +66,26 @@ function ContactTile({
   }
 
   useEffect(() => {
+    function seperatePhoneNumber(contact) {
+      setCountryCode(
+        contact.phoneNumbers[0].phoneNumberFormatted.split("-")[0]
+      );
+      setAreaCode(contact.phoneNumbers[0].phoneNumberFormatted.split("-")[1]);
+      setNumber(contact.phoneNumbers[0].phoneNumberFormatted.split("-")[2]);
+      if (extension) {
+        setExtension(
+          contact.phoneNumbers[0].phoneNumberFormatted.split("#")[1]
+        );
+      } else {
+        setExtension("");
+      }
+      setCategory(contact.phoneNumbers[0].category);
+      setId(contact.phoneNumbers[0].id);
+    }
+
     seperatePhoneNumber(contact);
     // console.log(countryCode, areaCode, number, extension, category);
-  }, []);
-
-  function seperatePhoneNumber(contact) {
-    setCountryCode(contact.phoneNumbers[0].phoneNumberFormatted.split("-")[0]);
-    setAreaCode(contact.phoneNumbers[0].phoneNumberFormatted.split("-")[1]);
-    setNumber(contact.phoneNumbers[0].phoneNumberFormatted.split("-")[2]);
-    if (extension) {
-      setExtension(contact.phoneNumbers[0].phoneNumberFormatted.split("#")[1]);
-    } else {
-      setExtension("");
-    }
-    setCategory(contact.phoneNumbers[0].category);
-    setId(contact.phoneNumbers[0].id);
-  }
+  }, [contact, extension]);
 
   //choose between 2 different versions of the tile
   //editing version will need change handlers and state for each field - is there a better way???
