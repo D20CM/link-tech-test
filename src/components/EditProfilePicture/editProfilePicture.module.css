@@ -27,10 +27,14 @@
     border-radius: 0.2em;
     border: none;
     padding: 0.5em 1.5em;
+    transition: ease all 0.5s;
+    box-shadow: var(--main-box-shadow);
     
 }
 
 .EditProfilePicture button:hover{
     text-decoration: underline;
     cursor: pointer;
+    transition: ease all 0.5s;
+    background-color: var(--green-highlight-color);
 }

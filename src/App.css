@@ -6,7 +6,15 @@
  
   display: grid;
   grid-template-columns: 1.5fr 8.5fr;
+  margin: 0;
+  padding: 0;
+  overflow: none;
 }
+
+/* svg{
+  margin: 0;
+  padding: 0;
+} */
 
 .error{
   padding: 5em;
@@ -23,10 +31,13 @@
   top: 0;
 }
 
+
+
+
 @media screen and (max-width: 900px) {
   .App{
-      background-size: contain;
-  min-width: 100vw;
+  
+ 
   grid-template-columns: 1fr;
   /* background-image: url(../public/yacht-portrait-3.jpg); */
   background-size: cover; 
@@ -37,7 +48,5 @@
     display: none;
   }
 
-  .pageRight{
-    
-  }
+
 }

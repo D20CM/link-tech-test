@@ -4,9 +4,11 @@ import ContactTile from "../ContactTile/ContactTile";
 
 import { React, useEffect, useState } from "react";
 import { AiOutlineContacts } from "react-icons/ai";
+import { FaWindowClose } from "react-icons/fa";
 
 function Contacts({
   jwt,
+  setShowContacts,
   showAddContact,
   setShowAddContact,
   hasContactsChanged,
@@ -29,6 +31,14 @@ function Contacts({
 
   return (
     <div className={css.contactsContainer}>
+      <div className={css.closeIcon}>
+        <FaWindowClose
+          onClick={() => {
+            setShowContacts(false);
+            setShowAddContact(false);
+          }}
+        />
+      </div>
       <h2>Contacts</h2>
       <div className={css.tileGrid}>
         {contacts.length > 0 ? (

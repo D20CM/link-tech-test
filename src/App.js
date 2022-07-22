@@ -151,6 +151,7 @@ function App() {
           {jwt && showContacts && (
             <Contacts
               jwt={jwt}
+              setShowContacts={setShowContacts}
               showAddContact={showAddContact}
               setShowAddContact={setShowAddContact}
               hasContactsChanged={hasContactsChanged}
@@ -162,6 +163,7 @@ function App() {
               jwt={jwt}
               hasContactsChanged={hasContactsChanged}
               setHasContactsChanged={setHasContactsChanged}
+              setShowAddContact={setShowAddContact}
             />
           )}
         </section>

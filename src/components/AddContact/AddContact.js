@@ -3,8 +3,14 @@ import { React, useEffect, useState } from "react";
 import { addContact } from "../../api/contacts";
 import { getCountries } from "../../api/utility";
 import CountrySelector from "../CountrySelector/CountrySelector";
+import { FaWindowClose } from "react-icons/fa";
 
-function AddContact({ jwt, hasContactsChanged, setHasContactsChanged }) {
+function AddContact({
+  jwt,
+  hasContactsChanged,
+  setHasContactsChanged,
+  setShowAddContact,
+}) {
   const [contactName, setContactName] = useState("");
   const [company, setCompany] = useState("");
   const [phoneNumbers, setPhoneNumbers] = useState([]);
@@ -55,6 +61,13 @@ function AddContact({ jwt, hasContactsChanged, setHasContactsChanged }) {
 
   return (
     <section className={css.addContactArea}>
+      <div className={css.closeIcon}>
+        <FaWindowClose
+          onClick={() => {
+            setShowAddContact(false);
+          }}
+        />
+      </div>
       <h2>Add Contact</h2>
       <form>
         <input

@@ -48,8 +48,8 @@
     right: 0;
     cursor: pointer;
     box-shadow: var(--main-box-shadow);
-
-   
+    border: none;
+    transition: ease all 0.5s;
 
 }
 
@@ -70,12 +70,19 @@
     cursor: pointer;
     padding: 0.3em 1em;
     box-shadow: var(--main-box-shadow);
+    border: none;
+    transition: ease all 0.5s;
+}
 
+.contactsButton:hover, .changePasswordButton:hover, .changeProfileImageButton:hover{
+    background-color: var(--green-highlight-color);
+    transition: ease all 0.5s;
 }
 
 .editImageIcon{
     font-size: 2em;
     margin: 0 0.2em;
+    
 }
 
 .imageEditControls{

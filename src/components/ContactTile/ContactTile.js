@@ -1,6 +1,7 @@
 import css from "./contactTile.module.css";
-import { React, useState } from "react";
+import { React, useEffect, useState } from "react";
 import { deleteContact, updateContact } from "../../api/contacts";
+import CountrySelector from "../CountrySelector/CountrySelector";
 
 function ContactTile({
   contact,
@@ -9,16 +10,15 @@ function ContactTile({
   setHasContactsChanged,
 }) {
   const [isEditing, setIsEditing] = useState(false);
-  const [dummy, setDummy] = useState("");
   const [contactName, setContactName] = useState(contact.contactName);
   const [company, setCompany] = useState(contact.company);
   // const [phoneNumbers, setPhoneNumbers] = useState([]);
-  // const [areaCode, setAreaCode] = useState("");
-  // const [number, setNumber] = useState("");
-  // const [category, setCategory] = useState("");
-  // const [countryCode, setCountryCode] = useState("");
-  // const [extension, setExtension] = useState("");
-  // const [id, setId] = useState("");
+  const [areaCode, setAreaCode] = useState("");
+  const [number, setNumber] = useState("");
+  const [category, setCategory] = useState("");
+  const [countryCode, setCountryCode] = useState("");
+  const [extension, setExtension] = useState("");
+  const [id, setId] = useState("");
   const [primaryEmailAddress, setPrimaryEmailAddress] = useState(
     contact.primaryEmailAddress
   );
@@ -42,12 +42,12 @@ function ContactTile({
       contactName: contactName,
       phoneNumbers: [
         {
-          areaCode: "0151",
-          category: "WORK",
-          countryCode: "1",
-          extension: "",
-          id: "elvis1",
-          number: "123456",
+          areaCode: areaCode,
+          category: category,
+          countryCode: countryCode,
+          extension: extension,
+          id: id,
+          number: number,
         },
       ],
       primaryEmailAddress: primaryEmailAddress,
@@ -63,6 +63,24 @@ function ContactTile({
   function handleInput(callback, e) {
     callback(e);
     // console.log(contactName, company, primaryEmailAddress);
+  }
+
+  useEffect(() => {
+    seperatePhoneNumber(contact);
+    // console.log(countryCode, areaCode, number, extension, category);
+  }, []);
+
+  function seperatePhoneNumber(contact) {
+    setCountryCode(contact.phoneNumbers[0].phoneNumberFormatted.split("-")[0]);
+    setAreaCode(contact.phoneNumbers[0].phoneNumberFormatted.split("-")[1]);
+    setNumber(contact.phoneNumbers[0].phoneNumberFormatted.split("-")[2]);
+    if (extension) {
+      setExtension(contact.phoneNumbers[0].phoneNumberFormatted.split("#")[1]);
+    } else {
+      setExtension("");
+    }
+    setCategory(contact.phoneNumbers[0].category);
+    setId(contact.phoneNumbers[0].id);
   }
 
   //choose between 2 different versions of the tile
@@ -112,6 +130,32 @@ function ContactTile({
           {contact.phoneNumbers[0].phoneNumberFormatted} (
           {contact.phoneNumbers[0].category})
         </p>
+        <input
+          value={number}
+          onChange={(e) => handleInput(setNumber, e.target.value)}
+        ></input>
+        <input
+          value={areaCode}
+          onChange={(e) => handleInput(setAreaCode, e.target.value)}
+        ></input>
+        <CountrySelector setCountryCode={setCountryCode} />
+        <input
+          value={id}
+          onChange={(e) => handleInput(setId, e.target.value)}
+        ></input>
+        <input
+          value={extension}
+          onChange={(e) => handleInput(setExtension, e.target.value)}
+        ></input>
+        <select
+          name="categories"
+          className={css.categoryInput}
+          onChange={(e) => handleInput(setCategory, e.target.value)}
+        >
+          <option value="HOME">HOME</option>
+          <option value="MOBILE">MOBILE</option>
+          <option value="WORK">WORK</option>
+        </select>
       </div>
       <button onClick={() => handleDelete()}>Delete Contact</button>
       <button onClick={() => handleSave()}>Save Contact</button>

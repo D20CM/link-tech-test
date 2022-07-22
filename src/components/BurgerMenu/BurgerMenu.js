@@ -5,11 +5,14 @@ import { AiOutlineContacts, AiOutlineDashboard } from "react-icons/ai";
 import { BiMessageDetail } from "react-icons/bi";
 import { RiShip2Line, RiTruckLine, RiShoppingCartLine } from "react-icons/ri";
 import { MdScreenSearchDesktop } from "react-icons/md";
+import { FaWindowClose } from "react-icons/fa";
 
 function BurgerMenu({ closeBurgerMenu }) {
   return (
     <div className={css.burgerMenu}>
-      <button onClick={() => closeBurgerMenu()}>X</button>
+      <div className={css.closeIcon}>
+        <FaWindowClose onClick={() => closeBurgerMenu()} />
+      </div>
       <h2>NOTLINK</h2>
       <ul>
         <li>

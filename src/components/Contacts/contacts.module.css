@@ -7,6 +7,7 @@
 
 .contactsContainer{
     width: 80%;
+    
     margin: 3em auto;
     padding: 3em;
     background-color: var(--main-light-bg);
@@ -15,6 +16,24 @@
     text-align: center;
     
 
+}
+
+.closeIcon{
+    text-align: right;
+    margin: 0;
+    padding: 0;
+    color: var(--red-highlight-color);
+  }
+
+
+
+.contactsContainer button{
+    transition: ease all 0.5s;
+}
+
+.contactsContainer button:hover{
+    background-color: var(--green-highlight-color);
+    transition: ease all 0.5s;
 }
 
 .tileGrid{
@@ -40,6 +59,8 @@
     color: var(--main-bright-white);
     padding: 0.5em 1em;
     border-radius: 0.2em;
+    border: none;
+    box-shadow: var(--main-box-shadow);
 }
 
 .addContactButton:hover{
@@ -54,8 +75,10 @@
 @media screen and (max-width: 900px) {
     .contactsContainer{
         padding: 1em;
+      
     }
 }
+
 @media screen and (max-width: 400px) {
     .contactsContainer{
         margin: 1em auto;

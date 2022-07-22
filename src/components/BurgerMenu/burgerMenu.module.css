@@ -8,6 +8,11 @@
     z-index: 100;
   }
 
+  .closeIcon{
+    text-align: right;
+    color: var(--red-highlight-color);
+  }
+
   .burgerMenu > ul{
     display: flex;
     flex-direction: column;

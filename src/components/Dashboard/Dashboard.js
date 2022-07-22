@@ -39,7 +39,7 @@ function Dashboard({
       const data = response.url;
       const status = response.status;
       console.log(status);
-      console.log("This should be the image: ", data);
+
       setProfileImageUrl(data);
       setImageUrl(data);
       return data;
@@ -95,7 +95,7 @@ function Dashboard({
           }}
           className={css.contactsButton}
         >
-          Show/Hide Contacts
+          {showContacts ? "Hide Contacts" : "Show Contacts"}
         </button>
         <button
           onClick={() => {
@@ -103,7 +103,7 @@ function Dashboard({
           }}
           className={css.changePasswordButton}
         >
-          Change password
+          {showChangePassword ? "Cancel" : "Change Password"}
         </button>
         {showChangePassword ? <ChangePassword jwt={jwt} /> : null}
       </div>
