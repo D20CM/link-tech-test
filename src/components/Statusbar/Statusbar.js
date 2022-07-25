@@ -21,7 +21,14 @@ function Statusbar({
         <li className={css.burgerMenu}>
           <GiHamburgerMenu onClick={handleBurger} className={css.burgerIcon} />
         </li>
-        <li>Help</li>
+        <li>
+          <a
+            href="https://interview.intrinsiccloud.net/swagger-ui/#/"
+            alt="swagger-docs"
+          >
+            Help
+          </a>
+        </li>
         {imageUrl && (
           <li>
             <img

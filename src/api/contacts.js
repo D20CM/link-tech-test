@@ -11,6 +11,13 @@ export async function getContacts(jwt) {
       }
     );
     const data = await response.json();
+    if (!response.ok) {
+      console.log("before error thrown", data);
+      let error = new Error();
+      error = { message: data.error, status: response.status };
+      throw error;
+    }
+
     console.log("In getContacts: ", data);
     return data;
   } else return "please ensure the jwt is present";
@@ -33,6 +40,12 @@ export async function addContact(jwt, newContact) {
     );
     const data = await response.json();
     console.log(data);
+    if (!response.ok) {
+      let error = new Error();
+      error = { message: data.error, status: response.status };
+      console.log(error);
+      throw error;
+    }
     alert(data.message);
     return data;
   } else {
@@ -53,6 +66,11 @@ export async function deleteContact(jwt, id) {
       }
     );
     const data = await response.json();
+    if (!response.ok) {
+      let error = new Error();
+      error = { message: data.error, status: response.status };
+      throw error;
+    }
     console.log(data);
     return data;
   } else {
@@ -76,6 +94,11 @@ export async function updateContact(jwt, id, newData) {
       }
     );
     const data = await response.json();
+    if (!response.ok) {
+      let error = new Error();
+      error = { message: response.message, status: response.status };
+      throw error;
+    }
     alert(data.message);
     console.log(data);
 

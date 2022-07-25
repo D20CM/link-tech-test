@@ -11,6 +11,13 @@ export async function handleLoginSubmit(username, password) {
       }),
     }
   );
+
+  if (!response.ok) {
+    let error = new Error();
+    error = { message: response.message, status: response.status };
+    throw error;
+  }
+
   const data = await response.json();
 
   const jwt = data.token;

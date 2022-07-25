@@ -56,7 +56,7 @@ function App() {
       const data = await response.json();
       console.log(data);
 
-      if (status !== 200) {
+      if (!response.ok) {
         let error = new Error();
         error = { message: data.message, status: status };
         throw error;
@@ -121,7 +121,11 @@ function App() {
         />
         <section className="mainContainer">
           {error && (
-            <div className="error">{error.status + ": " + error.message}</div>
+            <div className="error">
+              <button onClick={() => setError(null)}>Dismiss</button>
+              <h3>Sorry, we've encountered an error!</h3>
+              {error.status + ": " + error.message}
+            </div>
           )}
           {isLoggedIn ? (
             <Dashboard
@@ -134,6 +138,7 @@ function App() {
               setShowAddContact={setShowAddContact}
               showChangePassword={showChangePassword}
               setShowChangePassword={setShowChangePassword}
+              setError={setError}
             />
           ) : (
             <>
@@ -156,6 +161,7 @@ function App() {
               setShowAddContact={setShowAddContact}
               hasContactsChanged={hasContactsChanged}
               setHasContactsChanged={setHasContactsChanged}
+              setError={setError}
             />
           )}
           {jwt && showAddContact && (
@@ -164,6 +170,7 @@ function App() {
               hasContactsChanged={hasContactsChanged}
               setHasContactsChanged={setHasContactsChanged}
               setShowAddContact={setShowAddContact}
+              setError={setError}
             />
           )}
         </section>

@@ -17,7 +17,7 @@
 } */
 
 .error{
-  padding: 5em;
+  padding: 2em;
   background-color: var(--red-highlight-color);
   color: var(--main-bright-white);
   font-weight: 600;

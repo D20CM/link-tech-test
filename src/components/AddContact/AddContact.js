@@ -10,6 +10,7 @@ function AddContact({
   hasContactsChanged,
   setHasContactsChanged,
   setShowAddContact,
+  setError,
 }) {
   const [contactName, setContactName] = useState("");
   const [company, setCompany] = useState("");
@@ -27,36 +28,41 @@ function AddContact({
     // console.log(contactName, company, primaryEmailAddress);
   }
 
-  function handleSubmit(e) {
-    const newContact = {
-      contactName: contactName,
-      company: company,
-      phoneNumbers: [
-        {
-          areaCode: areaCode,
-          category: category,
-          countryCode: countryCode,
-          extension: extension,
-          id: id,
-          number: number,
-        },
-      ],
-      primaryEmailAddress: primaryEmailAddress,
-    };
-    e.preventDefault();
-    console.log(JSON.stringify(newContact));
-    addContact(jwt, newContact);
-    //clear form inputs
-    setContactName("");
-    setCompany("");
-    setPrimaryEmailAddress("");
-    setAreaCode("");
-    setNumber("");
-    setCategory("");
-    setCountryCode("");
-    setExtension("");
-    setId("");
-    setHasContactsChanged(!hasContactsChanged);
+  async function handleSubmit(e) {
+    try {
+      const newContact = {
+        contactName: contactName,
+        company: company,
+        phoneNumbers: [
+          {
+            areaCode: areaCode,
+            category: category,
+            countryCode: countryCode,
+            extension: extension,
+            id: id,
+            number: number,
+          },
+        ],
+        primaryEmailAddress: primaryEmailAddress,
+      };
+      e.preventDefault();
+      console.log(JSON.stringify(newContact));
+      const addedUser = await addContact(jwt, newContact);
+      console.log("you have added the contact: ", addedUser);
+      //clear form inputs
+      setContactName("");
+      setCompany("");
+      setPrimaryEmailAddress("");
+      setAreaCode("");
+      setNumber("");
+      setCategory("");
+      setCountryCode("");
+      setExtension("");
+      setId("");
+      setHasContactsChanged(!hasContactsChanged);
+    } catch (error) {
+      setError(error);
+    }
   }
 
   return (

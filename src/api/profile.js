@@ -53,6 +53,12 @@ export async function changeProfileImage(jwt, formData) {
     );
 
     const data = await response.json();
+    if (!response.ok) {
+      console.log("before error thrown", data);
+      let error = new Error();
+      error = { message: data.error, status: response.status };
+      throw error;
+    }
     return data;
   }
 }

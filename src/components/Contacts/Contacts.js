@@ -13,16 +13,20 @@ function Contacts({
   setShowAddContact,
   hasContactsChanged,
   setHasContactsChanged,
+  setError,
 }) {
   const [contacts, setContacts] = useState([]);
-
-  //   const receivedContacts = getContacts(jwt);
 
   let receivedContacts;
 
   async function assignContacts() {
-    receivedContacts = await getContacts(jwt);
-    setContacts(receivedContacts);
+    setError(null);
+    try {
+      receivedContacts = await getContacts(jwt);
+      setContacts(receivedContacts);
+    } catch (error) {
+      setError(error);
+    }
   }
 
   useEffect(() => {

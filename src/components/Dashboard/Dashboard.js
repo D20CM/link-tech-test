@@ -14,6 +14,7 @@ function Dashboard({
   setShowAddContact,
   showChangePassword,
   setShowChangePassword,
+  setError,
 }) {
   const [profileImageUrl, setProfileImageUrl] = useState(null);
   const [isImageEditDisplayed, setIsImageEditDisplayed] = useState(false);
@@ -82,6 +83,7 @@ function Dashboard({
                 jwt={jwt}
                 newProfileFile={newProfileFile}
                 setNewProfileFile={setNewProfileFile}
+                setError={setError}
               />
             )}
           </div>

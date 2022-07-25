@@ -11,6 +11,7 @@ function EditProfilePicture({
   newImageName,
   setNewImageName,
   getUserProfileImage,
+  setError,
 }) {
   const [changed, setChanged] = useState(false);
 
@@ -26,20 +27,28 @@ function EditProfilePicture({
     const formData = new FormData();
     formData.append("file", newProfileFile);
 
-    console.log(jwt);
-    console.log(formData);
+    // console.log(jwt);
+    // console.log(formData);
 
-    const changedPicture = await changeProfileImage(jwt, formData);
-    setImageName(newProfileFile.name);
-    setNewImageName(newProfileFile.name);
-    console.log("new image name: ", imageName);
-    console.log("is it changed?  ", changedPicture);
-    setChanged(!changed);
+    try {
+      const changedPicture = await changeProfileImage(jwt, formData);
+      setImageName(newProfileFile.name);
+      setNewImageName(newProfileFile.name);
+      console.log("new image name: ", imageName);
+      console.log("is it changed?  ", changedPicture);
+      setChanged(!changed);
 
-    // setNewProfileFile("");
+      // setNewProfileFile("");
+    } catch (error) {
+      setError(error);
+    }
   }
 
   function handleChangeFile(someFile) {
+    if (someFile.size > 1000000) {
+      console.log("This image is too large - maximum size is 1mb.");
+      throw new Error("This image is too large - maximum size is 1mb.");
+    }
     console.log("someFile: ", someFile);
     setNewProfileFile(someFile);
   }
@@ -50,7 +59,13 @@ function EditProfilePicture({
       <input
         type="file"
         className={css.fileInput}
-        onChange={(e) => handleChangeFile(e.target.files[0])}
+        onChange={(e) => {
+          try {
+            handleChangeFile(e.target.files[0]);
+          } catch (error) {
+            setError(error);
+          }
+        }}
       ></input>
       <button onClick={() => handleSubmitImageFile()}>Upload</button>
     </div>
