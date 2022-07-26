@@ -72,20 +72,6 @@ function Dashboard({
               <FiEdit className={css.editImageIcon} />
             </button>
           </div>
-          <div className={css.imageEditControls}>
-            {isImageEditDisplayed && (
-              <EditProfilePicture
-                newImageName={newImageName}
-                setNewImageName={setNewImageName}
-                setImageName={setImageName}
-                getUserProfileImage={getUserProfileImage}
-                jwt={jwt}
-                newProfileFile={newProfileFile}
-                setNewProfileFile={setNewProfileFile}
-                setError={setError}
-              />
-            )}
-          </div>
         </div>
       )}
       <div className={css.rightSide}>
@@ -109,6 +95,22 @@ function Dashboard({
           {showChangePassword ? "Cancel" : "Change Password"}
         </button>
         {showChangePassword ? <ChangePassword jwt={jwt} /> : null}
+        <div className={css.imageEditControls}>
+          {isImageEditDisplayed && (
+            <EditProfilePicture
+              newImageName={newImageName}
+              setNewImageName={setNewImageName}
+              setImageName={setImageName}
+              getUserProfileImage={getUserProfileImage}
+              jwt={jwt}
+              newProfileFile={newProfileFile}
+              setNewProfileFile={setNewProfileFile}
+              setError={setError}
+              isImageEditDisplayed={isImageEditDisplayed}
+              setIsImageEditDisplayed={setIsImageEditDisplayed}
+            />
+          )}
+        </div>
       </div>
     </div>
   );

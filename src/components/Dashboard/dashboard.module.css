@@ -20,6 +20,7 @@
 
 .rightSide{
     padding: 2em;
+    max-width: 100%;
 }
 
 .profileImage{
@@ -29,7 +30,7 @@
     min-width: 10em;
     max-width: 200px;
     margin: 0 auto;
-    background-size: cover;
+    background-size:cover;
     /* border: 2px solid navy; */
     box-shadow: var(--main-box-shadow);
 
@@ -91,13 +92,18 @@
     background-color: var(--main-grey-bg);
     /* padding: 1em; */
     border-radius: 0.4em;
-    max-width: 80%;
+    max-width: 100%;
     padding: 0;
     margin: 0 auto;
     box-shadow: var(--main-box-shadow);
     
 }
 
+@media screen and (max-width: 1000px) {
+    .dashboardContainer{
+       padding: 3em 1em;
+    }
+}
 @media screen and (max-width: 900px) {
     .dashboardContainer{
         grid-template-columns: 1fr;

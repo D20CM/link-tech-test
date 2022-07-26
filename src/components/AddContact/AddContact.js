@@ -17,7 +17,7 @@ function AddContact({
   // const [phoneNumbers, setPhoneNumbers] = useState([]);
   const [areaCode, setAreaCode] = useState("");
   const [number, setNumber] = useState("");
-  const [category, setCategory] = useState("");
+  const [category, setCategory] = useState("HOME");
   const [countryCode, setCountryCode] = useState("");
   const [extension, setExtension] = useState("");
   const [id, setId] = useState("");
@@ -62,6 +62,10 @@ function AddContact({
       setHasContactsChanged(!hasContactsChanged);
     } catch (error) {
       setError(error);
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
     }
   }
 

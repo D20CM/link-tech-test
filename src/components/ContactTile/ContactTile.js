@@ -34,6 +34,10 @@ function ContactTile({
         setHasContactsChanged(!hasContactsChanged);
       } catch (error) {
         setError(error);
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
       }
     }
   }
@@ -68,6 +72,10 @@ function ContactTile({
       console.log(updatedUser);
     } catch (error) {
       setError(error);
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
     }
   }
 

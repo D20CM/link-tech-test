@@ -25,7 +25,7 @@ function Login({
         onChange={(e) => handleUsernameInput(e.target.value)}
       ></input>
       <input
-        type="text"
+        type="password"
         className={css.passwordInput}
         placeholder="Password"
         onChange={(e) => handlePasswordInput(e.target.value)}

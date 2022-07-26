@@ -1,6 +1,7 @@
 import css from "./editProfilePicture.module.css";
 import { React, useState, useEffect } from "react";
 import { changeProfileImage } from "../../api/profile";
+import { FaWindowClose } from "react-icons/fa";
 
 function EditProfilePicture({
   jwt,
@@ -12,6 +13,8 @@ function EditProfilePicture({
   setNewImageName,
   getUserProfileImage,
   setError,
+  isImageEditDisplayed,
+  setIsImageEditDisplayed,
 }) {
   const [changed, setChanged] = useState(false);
 
@@ -41,6 +44,10 @@ function EditProfilePicture({
       // setNewProfileFile("");
     } catch (error) {
       setError(error);
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
     }
   }
 
@@ -55,6 +62,13 @@ function EditProfilePicture({
 
   return (
     <div className={css.EditProfilePicture}>
+      <div className={css.closeIcon}>
+        <FaWindowClose
+          onClick={() => {
+            setIsImageEditDisplayed(false);
+          }}
+        />
+      </div>
       <h2>Change Profile Image</h2>
       <input
         type="file"

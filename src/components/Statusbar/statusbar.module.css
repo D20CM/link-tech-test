@@ -36,6 +36,12 @@
 
 .burgerIcon{
     cursor: pointer;
+    font-size: 2em;
+}
+
+.helpIcon{
+    font-size: 2.6em;
+    cursor: pointer;
 }
 
 @media screen and (max-width: 900px) {

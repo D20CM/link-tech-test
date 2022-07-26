@@ -1,6 +1,7 @@
 import React from "react";
 import css from "./statusbar.module.css";
 import { GiHamburgerMenu } from "react-icons/gi";
+import { BiHelpCircle } from "react-icons/bi";
 
 function Statusbar({
   imageUrl,
@@ -26,7 +27,7 @@ function Statusbar({
             href="https://interview.intrinsiccloud.net/swagger-ui/#/"
             alt="swagger-docs"
           >
-            Help
+            <BiHelpCircle className={css.helpIcon} />
           </a>
         </li>
         {imageUrl && (

@@ -6,13 +6,15 @@
     border-radius: 0.4em;
     text-align: left;
     max-width: 500px;
-    /* min-width: 280px; */
+    min-width: 220px;
     box-shadow: var(--main-box-shadow);
     /* background-color: rgba(0, 0, 0, 0.104); */
     background-color: var(--main-grey-bg);
      overflow: hidden;
        font-family: 'Alegreya Sans SC', sans-serif;
-
+    display: grid;
+    grid-template-rows: 1fr 2em;
+   
   
 
 }
@@ -53,12 +55,15 @@
 }
 
 .iconRow{
+   
     display: flex;
     justify-content: flex-end;
+   
 }
 
 .tileIcon{
-    margin: 1em 1em 0 0;
+    margin: 1em 0 0 1em  ;
+    font-size: 1.2em;
 }
 
 .tileIcon:hover{
@@ -67,7 +72,30 @@
 }
 
 @media screen and (max-width: 400px) {
+    
     .contactTile, .contactTileEdit{
         font-size: 0.8em;
+        margin-left: 0.5em;
+        margin-right: 0.5em;
+        /* min-width: 180px; */
+        
+        
+    }
+
+   
+    .tileIcon{
+        margin: 1em 0 0 1.4em ;
+        font-size: 1.4em;
+    }
+}
+
+@media screen and (max-width: 330px) {
+    
+    .contactTile, .contactTileEdit{
+      max-width: 180px;
+        margin-left: 0;
+        margin-right: 0;
+        
+        
     }
 }

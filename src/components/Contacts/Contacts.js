@@ -26,6 +26,10 @@ function Contacts({
       setContacts(receivedContacts);
     } catch (error) {
       setError(error);
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
     }
   }
 
