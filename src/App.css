@@ -21,6 +21,24 @@
   background-color: var(--red-highlight-color);
   color: var(--main-bright-white);
   font-weight: 600;
+  /* position: fixed;
+  top: 50%;
+  width: 70%;
+  margin: auto; */
+}
+
+.errorDismiss{
+  
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: 0.8em;
+}
+
+.closeIcon{
+  cursor: pointer;
+  font-size: 2em;
+  margin-left: 0.5em;
 }
 
 .burgerMenu{

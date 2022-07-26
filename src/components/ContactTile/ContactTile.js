@@ -2,6 +2,8 @@ import css from "./contactTile.module.css";
 import { React, useEffect, useState } from "react";
 import { deleteContact, updateContact } from "../../api/contacts";
 import CountrySelector from "../CountrySelector/CountrySelector";
+import { AiFillDelete, AiFillSave } from "react-icons/ai";
+import { FaEdit, FaWindowClose } from "react-icons/fa";
 
 function ContactTile({
   contact,
@@ -114,8 +116,11 @@ function ContactTile({
           {contact.phoneNumbers[0].category})
         </p>
       </div>
-      <button onClick={() => handleDelete()}>Delete Contact</button>
-      <button onClick={() => handleEdit()}>Edit Contact</button>
+      <div className={css.iconRow}>
+        <AiFillDelete onClick={() => handleDelete()} className={css.tileIcon} />
+
+        <FaEdit onClick={() => handleEdit()} className={css.tileIcon} />
+      </div>
     </div>
   ) : (
     //end of display tile
@@ -169,8 +174,18 @@ function ContactTile({
           <option value="WORK">WORK</option>
         </select>
       </div>
-      <button onClick={() => handleDelete()}>Delete Contact</button>
-      <button onClick={() => handleSave()}>Save Contact</button>
+
+      <div className={css.iconRow}>
+        <AiFillDelete onClick={() => handleDelete()} className={css.tileIcon} />
+
+        <AiFillSave onClick={() => handleSave()} className={css.tileIcon} />
+        <FaWindowClose
+          onClick={() => {
+            setIsEditing(false);
+          }}
+          className={css.tileIcon}
+        />
+      </div>
     </div>
     //end of edit tile
   );

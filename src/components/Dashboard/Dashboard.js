@@ -22,7 +22,6 @@ function Dashboard({
   const [newImageName, setNewImageName] = useState("");
 
   function handleClick() {
-    console.log("Clickety-click");
     setIsImageEditDisplayed(!isImageEditDisplayed);
   }
 

@@ -7,6 +7,7 @@ import { useState } from "react";
 import Dashboard from "./components/Dashboard/Dashboard";
 import AddContact from "./components/AddContact/AddContact";
 import BurgerMenu from "./components/BurgerMenu/BurgerMenu";
+import { FaWindowClose } from "react-icons/fa";
 
 function App() {
   const [username, setUsername] = useState("");
@@ -119,7 +120,14 @@ function App() {
         <section className="mainContainer">
           {error && (
             <div className="error">
-              <button onClick={() => setError(null)}>Dismiss</button>
+              {/* <button onClick={() => setError(null)}>Dismiss</button> */}
+              <div className="errorDismiss">
+                <span>Dismiss </span>
+                <FaWindowClose
+                  onClick={() => setError(null)}
+                  className="closeIcon"
+                />
+              </div>
               <h3>Sorry, we've encountered an error!</h3>
               {error.status + ": " + error.message}
             </div>

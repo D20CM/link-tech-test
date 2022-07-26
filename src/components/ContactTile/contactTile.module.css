@@ -52,6 +52,20 @@
    
 }
 
+.iconRow{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.tileIcon{
+    margin: 1em 1em 0 0;
+}
+
+.tileIcon:hover{
+    color: var(--red-highlight-color);
+    cursor: pointer;
+}
+
 @media screen and (max-width: 400px) {
     .contactTile, .contactTileEdit{
         font-size: 0.8em;

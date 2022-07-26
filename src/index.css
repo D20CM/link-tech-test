@@ -36,13 +36,13 @@ body {
 }
 @media only screen and (max-width: 1400px) {
   :root {
-    font-size: 15px;
+    font-size: 16px;
   }
 }
 
 @media only screen and (max-width: 900px) {
   :root {
-    font-size: 14px;
+    font-size: 15px;
   }
 }
 
