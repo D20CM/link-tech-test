@@ -134,7 +134,7 @@ function ContactTile({
     //end of display tile
     //start of edit tile
     <div className={css.contactTileEdit} key={contact.id}>
-      <div>
+      <div className={css.form}>
         <input
           className={css.contactName}
           value={contactName}
