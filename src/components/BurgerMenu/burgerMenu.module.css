@@ -8,6 +8,11 @@
     z-index: 100;
   }
 
+  .burgerMenu h2{
+    font-family: 'Alegreya Sans SC', sans-serif;
+
+  }
+
   .closeIcon{
     text-align: right;
     color: var(--red-highlight-color);

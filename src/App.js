@@ -26,11 +26,9 @@ function App() {
 
   function handleUsernameInput(inputString) {
     setUsername(inputString);
-    // console.log(username);
   }
   function handlePasswordInput(inputString) {
     setPassword(inputString);
-    // console.log(password);
   }
 
   //remember to take these two fetch functions out (import from /api)
@@ -114,7 +112,6 @@ function App() {
           imageUrl={imageUrl}
           imageName={imageName}
           user={user}
-          // isBurgerOpen={isBurgerOpen}
           showBurgerMenu={showBurgerMenu}
           closeBurgerMenu={closeBurgerMenu}
           isBurgerOpen={isBurgerOpen}
@@ -150,7 +147,6 @@ function App() {
                 username={username}
                 password={password}
               />
-              {/* {jwt ? <p>{jwt}</p> : <p>no jwt yet</p>}{" "} */}
             </>
           )}
           {jwt && showContacts && (

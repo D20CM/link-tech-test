@@ -10,6 +10,8 @@
     padding: 3em 0;
     font-weight: 500;
     color: var(--main-bright-white);
+    font-family: 'Alegreya Sans SC', sans-serif;
+
 }
 
 .sideMenu > ul{

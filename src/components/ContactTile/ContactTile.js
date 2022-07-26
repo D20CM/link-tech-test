@@ -8,6 +8,7 @@ function ContactTile({
   jwt,
   hasContactsChanged,
   setHasContactsChanged,
+  setError,
 }) {
   const [isEditing, setIsEditing] = useState(false);
   const [contactName, setContactName] = useState(contact.contactName);
@@ -25,9 +26,13 @@ function ContactTile({
 
   async function handleDelete() {
     if (window.confirm("Are you sure you want to delete this contact?")) {
-      let deletedContact = await deleteContact(jwt, contact.id);
-      console.log(deletedContact);
-      setHasContactsChanged(!hasContactsChanged);
+      try {
+        let deletedContact = await deleteContact(jwt, contact.id);
+        console.log(deletedContact);
+        setHasContactsChanged(!hasContactsChanged);
+      } catch (error) {
+        setError(error);
+      }
     }
   }
 
@@ -53,16 +58,19 @@ function ContactTile({
       primaryEmailAddress: primaryEmailAddress,
     };
     //will call the updateContact PUT function here
-    const updatedUser = await updateContact(jwt, contact.id, updatedUserInfo);
-    console.log("Save edits");
-    setIsEditing(false);
-    setHasContactsChanged(!hasContactsChanged);
-    console.log(updatedUser);
+    try {
+      const updatedUser = await updateContact(jwt, contact.id, updatedUserInfo);
+      console.log("Save edits");
+      setIsEditing(false);
+      setHasContactsChanged(!hasContactsChanged);
+      console.log(updatedUser);
+    } catch (error) {
+      setError(error);
+    }
   }
 
   function handleInput(callback, e) {
     callback(e);
-    // console.log(contactName, company, primaryEmailAddress);
   }
 
   useEffect(() => {

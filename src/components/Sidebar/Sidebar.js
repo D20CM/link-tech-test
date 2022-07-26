@@ -8,7 +8,7 @@ import { MdScreenSearchDesktop } from "react-icons/md";
 function Sidebar() {
   return (
     <div className={css.sideMenu}>
-      <h2>NOTLINK</h2>
+      <h2>NotLink</h2>
       <ul>
         <li>
           <AiOutlineDashboard className={css.menuIcon} />

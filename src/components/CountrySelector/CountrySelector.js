@@ -27,7 +27,6 @@ function CountrySelector({ setCountryCode }) {
       <select
         name="Country Code"
         className={css.countrySelector}
-        // onChange={(e) => setCountryCode(e.target)}
         onChange={(e) => setCountryCode(getCodeFromInputValue(e.target.value))}
       >
         {countries.map((country) => (

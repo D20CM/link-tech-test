@@ -13,7 +13,7 @@ function BurgerMenu({ closeBurgerMenu }) {
       <div className={css.closeIcon}>
         <FaWindowClose onClick={() => closeBurgerMenu()} />
       </div>
-      <h2>NOTLINK</h2>
+      <h2>NotLink</h2>
       <ul>
         <li>
           <AiOutlineDashboard className={css.menuIcon} />

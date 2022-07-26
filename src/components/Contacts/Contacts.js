@@ -54,6 +54,7 @@ function Contacts({
               jwt={jwt}
               hasContactsChanged={hasContactsChanged}
               setHasContactsChanged={setHasContactsChanged}
+              setError={setError}
             />
           ))
         ) : (
